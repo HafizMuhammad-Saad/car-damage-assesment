@@ -277,6 +277,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
               onClick={handleSubmit(handleFormSubmit)}
               loading={loading}
               disabled={!isValid || fields.length === 0 || images.length === 0}
+              className="min-w-[160px] text-amber-400 border border-amber-400 hover:bg-amber-400 hover:text-white"
             >
               Submit Assessment
             </Button>

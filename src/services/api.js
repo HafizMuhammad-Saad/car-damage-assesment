@@ -1,7 +1,9 @@
 // Simple MotorAPI v1 Service
 class MotorAPI {
   constructor() {
-    this.baseURL = "/api";
+    this.baseURL = import.meta.env.PROD
+  ? "https://v1.motorapi.dk"   // production build
+  : "/api";;
     this.apiKey = import.meta.env.VITE_MOTOR_API_KEY || ""; // set API key in .env
   }
 

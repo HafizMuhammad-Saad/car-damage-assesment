@@ -79,7 +79,6 @@ const CAR_PARTS = {
     { id: 'doorRearRight', name: 'Rear Right Door', file: 'doorRearRight.png', zIndex: 40, x: 35, y: 45, width: 25, height: 35 },
     { id: 'fenderFront', name: 'Front Fender', file: 'fenderFront.png', zIndex: 20, x: 75, y: 45, width: 20, height: 25 },
     { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 50, y: 60, width: 60, height: 10 },
-    { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 50, y: 30, width: 60, height: 30 },
     { id: 'lightRearRight', name: 'Rear Right Light', file: 'lightRearRight.png', zIndex: 35, x: 80, y: 65, width: 8, height: 6 },
     { id: 'mudguardRight', name: 'Right Mudguard', file: 'mudguardRight.png', zIndex: 22, x: 80, y: 60, width: 15, height: 20 },
     { id: 'wheelFrontRight', name: 'Front Right Wheel', file: 'wheelFrontRight.png', zIndex: 15, x: 75, y: 30, width: 20, height: 20 },
@@ -182,7 +181,7 @@ const CarViewer2D = ({
                       left: `${part.x}%`,
                       width: `${part.width}%`,
                       height: `${part.height}%`,
-                      transform: 'translate(-50%, -50%)',
+                      // transform: 'translate(-50%, -50%)',
                     }}
                     data-area={part.id}
                     onClick={() => handlePartClick(part.id, part.name)}

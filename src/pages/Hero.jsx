@@ -1,34 +1,34 @@
 import React from 'react';
-import { ArrowRight, Star, Shield, Clock } from 'lucide-react';
+import { ArrowRight, ArrowDown, Star, Shield, Clock } from 'lucide-react';
 
 function Hero() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)'
+            backgroundImage: 'url(/public/iStock-512750442-scaled-aspect-ratio-2000-1208-scaled-1-1024x618.jpg)'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/90 via-purple-900/80 to-pink-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-yellow-900/80 to-orange-900/90" style={{background: '#8f723d', opacity: 0.5}}></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium">
               <Star className="w-4 h-4 mr-2 text-yellow-400" />
               Professional Vehicle Assessment
-            </div>
+            </div> */}
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-              <span className="block">Expert Vehicle</span>
-              <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="block">Quick Repair</span>
+              <span className="block bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
                 Damage Assessment
               </span>
             </h1>
@@ -40,7 +40,7 @@ function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
               <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 Start Assessment
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -49,10 +49,10 @@ function Hero() {
               <button className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-full transition-all duration-300">
                 Learn More
               </button>
-            </div>
+            </div> */}
 
             {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 max-w-4xl mx-auto">
+            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 max-w-4xl mx-auto">
               <div className="text-center group">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 group-hover:bg-white/20 transition-colors">
                   <Shield className="w-8 h-8 text-cyan-400" />
@@ -76,14 +76,18 @@ function Hero() {
                 <h3 className="text-lg font-semibold text-white mb-2">Expert Analysis</h3>
                 <p className="text-white/70">Professional-grade assessment by certified experts</p>
               </div>
-            </div>
+            </div> */}
+  <span className='inline-flex items-center'>
+            <ArrowDown className="w-8 h-8 animate-bounce mt-8 text-5xl md:text-7xl font-bold text-white leading-tight" />
+
+  </span>
           </div>
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-xl animate-pulse"></div>
+        {/* <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 right-20 w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-orange-600/20 rounded-full blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/2 right-20 w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-orange-600/20 rounded-full blur-xl animate-pulse delay-500"></div> */}
       </section>
     </div>
   );

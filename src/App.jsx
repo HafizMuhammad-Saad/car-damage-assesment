@@ -84,45 +84,7 @@ function App() {
   return (
     <>
     <div className="min-h-screen">
-      {/* Header */}
-       <header className="bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 shadow-2xl border-b border-gray-700/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-sm opacity-75"></div>
-                <Car className="relative h-10 w-10 text-white p-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-lg" />
-              </div>
-              <div>
-                <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
-                  Vehicle Damage Assessment
-                </h1>
-                <p className="text-sm text-gray-400 font-medium">
-                  Professional damage evaluation and reporting
-                </p>
-              </div>
-            </div>
-            
-            {/* Navigation or additional elements can go here */}
-            <div className="hidden md:flex items-center space-x-6">
-              <nav className="flex items-center space-x-6">
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 font-medium">
-                  Services
-                </a>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 font-medium">
-                  About
-                </a>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 font-medium">
-                  Contact
-                </a>
-              </nav>
-              <button className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+     
       <Hero />
 
       {/* Progress Steps - Hide on success page */}
@@ -282,7 +244,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-sm text-gray-500">
             <p>
-              © 2024 Vehicle Damage Assessment System. 
+              © 2025 Vehicle Damage Assessment System. 
               Secure, professional, and reliable.
             </p>
           </div>

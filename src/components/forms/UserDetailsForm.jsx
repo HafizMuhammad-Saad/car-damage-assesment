@@ -84,43 +84,43 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Progress Indicator */}
         <div className="mb-8">
           <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+              <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-semibold font-varela">
                 1
               </div>
-              <span className="ml-3 text-sm font-medium text-blue-600">Personal Details</span>
+              <span className="ml-3 text-sm font-medium text-orange-600 font-varela">Personal Details</span>
             </div>
             <div className="w-16 h-1 bg-gray-200 rounded"></div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold">
+              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold font-varela">
                 2
               </div>
-              <span className="ml-3 text-sm font-medium text-gray-500">Damage Assessment</span>
+              <span className="ml-3 text-sm font-medium text-gray-500 font-varela">Damage Assessment</span>
             </div>
             <div className="w-16 h-1 bg-gray-200 rounded"></div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold">
+              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold font-varela">
                 3
               </div>
-              <span className="ml-3 text-sm font-medium text-gray-500">Review & Submit</span>
+              <span className="ml-3 text-sm font-medium text-gray-500 font-varela">Review & Submit</span>
             </div>
           </div>
         </div>
 
-        <Card className="w-full max-w-4xl mx-auto">
+        <Card className="w-full max-w-4xl mx-auto border-orange-200">
           <CardHeader>
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <Car className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
-                <CardTitle>Personal & Vehicle Details</CardTitle>
-                <CardDescription>
+                <CardTitle className="font-varela text-orange-900">Personal & Vehicle Details</CardTitle>
+                <CardDescription className="font-varela">
                   Please provide your contact information and vehicle details to get started with your car damage assessment.
                 </CardDescription>
               </div>
@@ -194,8 +194,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   />
                   {fetchingCarInfo && (
                     <div className="absolute right-4 top-10 flex items-center space-x-2">
-                      <Search className="w-4 h-4 text-blue-600 animate-pulse" />
-                      <span className="text-sm text-blue-600">Searching...</span>
+                      <Search className="w-4 h-4 text-orange-600 animate-pulse" />
+                      <span className="text-sm text-orange-600">Searching...</span>
                     </div>
                   )}
                 </div>
@@ -244,22 +244,22 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       value="insurance"
                       className="sr-only peer"
                     />
-                    <div className="p-6 border-2 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
+                    <div className="p-6 border-2 rounded-xl peer-checked:border-orange-500 peer-checked:bg-orange-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
-                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:bg-blue-500 relative flex items-center justify-center">
+                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-500 relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Shield className="w-5 h-5 text-blue-600" />
-                            <h4 className="text-lg font-semibold text-gray-900">Insurance Claim</h4>
+                            <Shield className="w-5 h-5 text-orange-600" />
+                            <h4 className="text-lg font-semibold text-gray-900 font-varela">Insurance Claim</h4>
                           </div>
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-gray-600 leading-relaxed font-varela">
                             Process your claim through your insurance company. We'll handle all the paperwork and coordination.
                           </p>
-                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-600">
+                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-600 font-varela">
                             <CheckCircle className="w-4 h-4" />
                             <span>Direct billing available</span>
                           </div>
@@ -275,22 +275,22 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       value="self-paid"
                       className="sr-only peer"
                     />
-                    <div className="p-6 border-2 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
+                    <div className="p-6 border-2 rounded-xl peer-checked:border-orange-500 peer-checked:bg-orange-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
-                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:bg-blue-500 relative flex items-center justify-center">
+                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-500 relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <CreditCard className="w-5 h-5 text-blue-600" />
-                            <h4 className="text-lg font-semibold text-gray-900">Self-Paid Service</h4>
+                            <CreditCard className="w-5 h-5 text-orange-600" />
+                            <h4 className="text-lg font-semibold text-gray-900 font-varela">Self-Paid Service</h4>
                           </div>
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-gray-600 leading-relaxed font-varela">
                             Pay for repairs directly and get faster service with flexible payment options.
                           </p>
-                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-600">
+                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-600 font-varela">
                             <CheckCircle className="w-4 h-4" />
                             <span>Priority scheduling</span>
                           </div>
@@ -317,7 +317,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   loading={loading}
                   disabled={!isValid}
                   size="lg"
-                  className="min-w-[160px]"
+                  className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange--400 hover:text-white"
                 >
                   Continue to Next Step
                 </Button>

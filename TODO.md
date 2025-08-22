@@ -1,24 +1,25 @@
-# CarViewer2D Fixes - TODO List
+# Styling Update Plan - Orange Theme with Varela Round Fonts
 
-## Phase 1: Positioning System Implementation
-- [x] Add positioning coordinates for all car parts in each view
-- [x] Fix image file name mismatches
-- [x] Implement proper positioning system with x, y coordinates
-- [x] Update styling to use relative positioning instead of centered
+## Steps to Complete:
 
-## Phase 2: Display Logic Improvements
-- [x] Implement conditional rendering - parts hidden by default
-- [x] Add hover functionality to preview parts
-- [x] Show parts only when clicked/selected
-- [x] Improve z-index management for proper layering
+1. [x] Update UserDetailsForm.jsx with orange color scheme
+   - [x] Change service type cards from blue to orange
+   - [x] Update progress indicators to orange
+   - [x] Modify card headers and buttons
+   - [x] Apply Varela Round font to titles and text elements
 
-## Phase 3: Testing and Refinement
-- [x] Test component functionality
-- [ ] Verify all image references work
-- [x] Check positioning accuracy
-- [x] Test hover and click interactions
+2. [ ] Update DamageAssessmentForm.jsx with orange color scheme
+   - [ ] Change card styling to orange theme
+   - [ ] Update button colors
+   - [ ] Modify severity indicators
+   - [ ] Apply consistent font styling
 
-## Phase 4: Optional Enhancements
-- [x] Add visual feedback for selected parts
-- [ ] Implement part highlighting on hover
-- [ ] Add tooltips for part identification
+3. [ ] Verify color contrast and accessibility
+4. [ ] Test responsiveness on different screen sizes
+5. [ ] Ensure all functionality remains intact
+
+## Current Progress:
+- UserDetailsForm successfully updated with orange theme
+- Insurance Claim and Self-Paid Service cards now use orange colors
+- All text elements use Varela Round font consistently
+- Ready to proceed with DamageAssessmentForm updates
