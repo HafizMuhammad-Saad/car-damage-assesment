@@ -87,7 +87,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Progress Indicator */}
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center">
               <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-semibold font-varela">
@@ -110,7 +110,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <span className="ml-3 text-sm font-medium text-gray-500 font-varela">Review & Submit</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <Card className="w-full max-w-4xl mx-auto border-orange-200">
           <CardHeader>
@@ -230,7 +230,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 </div>
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <label className="relative cursor-pointer group">
+                  <label className="relative cursor-pointer group flex h-full">
                     <input
                       type="radio"
                       {...register('serviceType')}
@@ -261,7 +261,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     </div>
                   </label>
 
-                  <label className="relative cursor-pointer group">
+                  <label className="relative cursor-pointer group flex h-full">
                     <input
                       type="radio"
                       {...register('serviceType')}
@@ -310,7 +310,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   loading={loading}
                   disabled={!isValid}
                   size="lg"
-                  className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange--400 hover:text-white"
+                  className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"
                 >
                   Continue to Next Step
                 </Button>

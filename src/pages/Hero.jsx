@@ -5,7 +5,7 @@ function Hero() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -13,7 +13,7 @@ function Hero() {
             backgroundImage: 'url(/hero.jpg)'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-yellow-900/80 to-orange-900/90" style={{background: '#8f723d', opacity: 0.5}}></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-yellow-900/80 to-orange-900/90" style={{background: '#56471a', opacity: 0.8}}></div>
         </div>
 
         {/* Content */}
@@ -28,7 +28,7 @@ function Hero() {
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
               <span className="block">Quick Repair</span>
-              <span className="block bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="block text-orange-500">
                 Damage Assessment
               </span>
             </h1>

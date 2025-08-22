@@ -269,6 +269,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
               variant="secondary"
               onClick={onBack}
               disabled={loading}
+              className="cursor-pointer"
             >
               Back to Details
             </Button>
@@ -277,7 +278,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
               onClick={handleSubmit(handleFormSubmit)}
               loading={loading}
               disabled={!isValid || fields.length === 0 || images.length === 0}
-              className="min-w-[160px] text-amber-400 border border-amber-400 hover:bg-amber-400 hover:text-white"
+              className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"
             >
               Submit Assessment
             </Button>

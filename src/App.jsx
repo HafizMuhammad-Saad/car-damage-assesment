@@ -149,7 +149,7 @@ function App() {
         </div>
       )} */}
             {/* Progress Steps - Hide on success page */}
-      {/* {currentStep !== STEPS.SUCCESS && (
+      {currentStep !== STEPS.SUCCESS && (
         <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <nav aria-label="Progress">
@@ -170,15 +170,15 @@ function App() {
                             relative flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all duration-300 transform hover:scale-105
                             ${
                               completed
-                                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 border-cyan-500 text-white shadow-lg shadow-cyan-500/25'
+                                ? 'bg-gradient-to-r from-orange-500 to-yellow-600 border-orange-500 text-white shadow-lg shadow-cyan-500/25'
                                 : active
-                                ? 'border-cyan-500 text-cyan-600 bg-cyan-50 shadow-md shadow-cyan-500/20'
+                                ? 'border-orange-500 text-yellow-600 bg-cyan-50 shadow-md shadow-cyan-500/20'
                                 : 'border-gray-300 text-gray-400 bg-gray-50'
                             }
                           `}
                         >
                           {completed && (
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-sm opacity-50"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full blur-sm opacity-50"></div>
                           )}
                           {completed ? (
                             <CheckCircle2 className="relative h-6 w-6" />
@@ -191,7 +191,7 @@ function App() {
                             text-base font-semibold transition-all duration-300
                             ${
                               active
-                                ? 'text-cyan-600'
+                                ? 'text-orange-600'
                                 : completed
                                 ? 'text-gray-800'
                                 : 'text-gray-500'
@@ -202,7 +202,7 @@ function App() {
                         </span>
                       </div>
                       {index < 2 && (
-                        <div className={`hidden sm:block ml-10 w-20 h-1 rounded-full transition-colors duration-500 ${completed ? 'bg-gradient-to-r from-cyan-400 to-blue-500' : 'bg-gray-200'}`} />
+                        <div className={`hidden sm:block ml-10 w-20 h-1 rounded-full transition-colors duration-500 ${completed ? 'bg-gradient-to-r from-orange-400 to-yellow-500' : 'bg-gray-200'}`} />
                       )}
                     </li>
                   )
@@ -211,7 +211,7 @@ function App() {
             </nav>
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Main Content */}
       <main className="py-8 px-4 sm:px-6 lg:px-8">
