@@ -216,14 +216,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                         <p className="text-sm text-gray-600">Model</p>
                         <p className="font-semibold text-gray-900">{carInfo.model}</p>
                       </div>
-                      <div className="bg-white rounded-lg p-3">
-                        <p className="text-sm text-gray-600">Year</p>
-                        <p className="font-semibold text-gray-900">{carInfo.year}</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-3">
-                        <p className="text-sm text-gray-600">Color</p>
-                        <p className="font-semibold text-gray-900">{carInfo.color}</p>
-                      </div>
+                     
                     </div>
                   </div>
                 )}
