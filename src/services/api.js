@@ -12,7 +12,6 @@ class MotorAPI {
     try {
       const response = await fetch(`${this.baseURL}/vehicles/${registrationOrVin}`, {
         headers: {
-          "Content-Type": "application/json",
           "X-AUTH-TOKEN": this.apiKey,
         },
       });
@@ -35,7 +34,6 @@ class MotorAPI {
 
       const response = await fetch(`${this.baseURL}/vehicles?${params}`, {
         headers: {
-          "Content-Type": "application/json",
           "X-AUTH-TOKEN": this.apiKey,
         },
       });

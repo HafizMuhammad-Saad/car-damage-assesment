@@ -10,7 +10,7 @@ function Hero() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/public/iStock-512750442-scaled-aspect-ratio-2000-1208-scaled-1-1024x618.jpg)'
+            backgroundImage: 'url(/hero.jpg)'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-yellow-900/80 to-orange-900/90" style={{background: '#8f723d', opacity: 0.5}}></div>
