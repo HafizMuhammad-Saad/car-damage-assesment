@@ -8,6 +8,8 @@ import Input from '../ui/Input'
 import ImageUpload from '../ui/ImageUpload'
 import CarModel from '../3d/CarModel'
 import { X, AlertCircle } from 'lucide-react'
+import CarViewerDemo from '../2d/CarViewerDemo'
+import CarViewer2D from '../2d/CarViewer2D'
 
 const SEVERITY_OPTIONS = [
   { value: 'light', label: 'Light', description: 'Minor scratches or small dents', color: 'bg-yellow-100 text-yellow-800' },
@@ -134,9 +136,18 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
         </CardHeader>
       </Card>
 
+        <CarViewer2D
+  onAreaSelect={handleAreaSelect}
+  selectedAreas={selectedAreas}
+  damages={fields.reduce((acc, damage) => {
+              acc[damage.area] = damage
+              return acc
+            }, {})}
+  height={500}
+/>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* 3D Car Model */}
-        <div>
+        {/* <div>
           <CarModel
             onAreaSelect={handleAreaSelect}
             selectedAreas={selectedAreas}
@@ -146,10 +157,11 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
             }, {})}
             height={500}
           />
-        </div>
+        </div> */}
+
 
         {/* Damage Details Form */}
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <Card>
             <CardHeader>
               <CardTitle className="text-lg">Damage Details</CardTitle>
@@ -228,7 +240,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
               )}
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
 
       {/* Image Upload Section */}

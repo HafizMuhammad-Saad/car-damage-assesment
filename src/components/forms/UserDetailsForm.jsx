@@ -246,7 +246,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     />
                     <div className="p-6 border-2 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 mt-1">
+                        <div className="flex-shrink-0 mt-1 hidden">
                           <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:bg-blue-500 relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
@@ -277,7 +277,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     />
                     <div className="p-6 border-2 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 mt-1">
+                        <div className="flex-shrink-0 mt-1 hidden">
                           <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:bg-blue-500 relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>

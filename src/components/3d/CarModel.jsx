@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, Text, Box } from '@react-three/drei'
+import { Canvas, useThree } from '@react-three/fiber'
+import { OrbitControls, Text, Box, useGLTF } from '@react-three/drei'
 import { cn } from '../../utils/cn'
 
 // Define clickable areas of the car
@@ -66,31 +66,40 @@ function ClickableArea({ area, onAreaClick, isSelected, damage }) {
   )
 }
 
-// Simple car body mesh
-function CarBody() {
-  return (
-    <group>
-      {/* Main body */}
-      <Box position={[0, 0.6, 0]} args={[2.4, 0.8, 4.5]}>
-        <meshStandardMaterial color="#E5E7EB" />
-      </Box>
-      
-      {/* Cabin */}
-      <Box position={[0, 1.4, 0]} args={[2, 0.8, 2.5]}>
-        <meshStandardMaterial color="#9CA3AF" />
-      </Box>
-      
-      {/* Wheels */}
-      {[[-1, 0, 1.5], [1, 0, 1.5], [-1, 0, -1.5], [1, 0, -1.5]].map((pos, i) => (
-        <group key={i}>
-          <mesh position={pos} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.35, 0.35, 0.3]} />
-            <meshStandardMaterial color="#1F2937" />
-          </mesh>
-        </group>
-      ))}
-    </group>
-  )
+// Realistic 3D car model using GLTF with fallback
+function RealCarModel() {
+  const { scene } = useGLTF('/models/car.glb', true, undefined, (error) => {
+    console.warn('Could not load car.glb, using fallback box model:', error.message);
+  });
+
+  if (!scene) {
+    // Fallback to simple box model when GLB is not available
+    return (
+      <group>
+        {/* Main body */}
+        <Box position={[0, 0.6, 0]} args={[2.4, 0.8, 4.5]}>
+          <meshStandardMaterial color="#E5E7EB" />
+        </Box>
+        
+        {/* Cabin */}
+        <Box position={[0, 1.4, 0]} args={[2, 0.8, 2.5]}>
+          <meshStandardMaterial color="#9CA3AF" />
+        </Box>
+        
+        {/* Wheels */}
+        {[[-1, 0, 1.5], [1, 0, 1.5], [-1, 0, -1.5], [1, 0, -1.5]].map((pos, i) => (
+          <group key={i}>
+            <mesh position={pos} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.35, 0.35, 0.3]} />
+              <meshStandardMaterial color="#1F2937" />
+            </mesh>
+          </group>
+        ))}
+      </group>
+    );
+  }
+
+  return <primitive object={scene} />;
 }
 
 // Camera controller for better initial view
@@ -112,8 +121,6 @@ const CarModel = ({
   className,
   height = 400 
 }) => {
-  const [hoveredArea, setHoveredArea] = useState(null)
-
   const handleAreaClick = (area) => {
     onAreaSelect(area.id, area.label)
   }
@@ -148,7 +155,7 @@ const CarModel = ({
           <pointLight position={[-10, -10, -5]} intensity={0.3} />
           
           {/* Car body */}
-          <CarBody />
+          <RealCarModel />
           
           {/* Clickable areas */}
           {CAR_AREAS.map((area) => (
