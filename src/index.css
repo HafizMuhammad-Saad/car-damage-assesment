@@ -1,5 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mozilla+Headline:wght@200..700&family=Varela+Round&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mozilla+Headline:wght@200..700&family=Varela+Round&display=swap'); */
+@font-face {
+  font-family: 'VagRounded';
+  src: url('/fonts/vag-round/OPTIVagRound-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
 @import "tailwindcss";
+
+body {
+  font-family: 'VagRounded', sans-serif;
+}
 /* 
 * {
   box-sizing: border-box;
