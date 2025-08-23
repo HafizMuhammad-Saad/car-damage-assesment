@@ -3,7 +3,7 @@ import { ArrowRight, ArrowDown, Star, Shield, Clock } from 'lucide-react';
 
 function Hero() {
   return (
-    <div className="min-h-screen">
+    <div className="">
       {/* Hero Section */}
       <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}

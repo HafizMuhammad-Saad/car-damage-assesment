@@ -83,174 +83,112 @@ function App() {
 
   return (
     <>
-    <div className="min-h-screen">
-     
-      <Hero />
+    <div className="min-h-screen flex flex-col">
+  {/* Hero */}
+  <Hero />
 
-      {/* Progress Steps - Hide on success page */}
-      {/* {currentStep !== STEPS.SUCCESS && (
-        <div className="bg-white border-b">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <nav aria-label="Progress">
-              <ol className="flex items-center justify-center space-x-8">
-                {Object.entries({
-                  [STEPS.USER_DETAILS]: 'Personal Details',
-                  [STEPS.DAMAGE_ASSESSMENT]: 'Damage Assessment',
-                  [STEPS.SUCCESS]: 'Complete'
-                }).map(([stepKey, stepName], index) => {
-                  const completed = isStepCompleted(stepKey)
-                  const active = isStepActive(stepKey)
-                  
-                  return (
-                    <li key={stepKey} className="flex items-center">
-                      <div className="flex items-center space-x-3">
-                        <div
-                          className={`
-                            flex h-10 w-10 items-center justify-center rounded-full border-2 transition-colors
-                            ${
-                              completed
-                                ? 'bg-primary-600 border-primary-600 text-white'
-                                : active
-                                ? 'border-primary-600 text-primary-600'
-                                : 'border-gray-300 text-gray-500'
-                            }
-                          `}
-                        >
-                          {completed ? (
-                            <CheckCircle2 className="h-5 w-5" />
-                          ) : (
-                            getStepIcon(stepKey)
-                          )}
-                        </div>
-                        <span
-                          className={`
-                            text-sm font-medium transition-colors
-                            ${
-                              active
-                                ? 'text-primary-600'
-                                : completed
-                                ? 'text-gray-900'
-                                : 'text-gray-500'
-                            }
-                          `}
-                        >
-                          {stepName}
-                        </span>
-                      </div>
-                      {index < 2 && (
-                        <div className="hidden sm:block ml-8 w-16 h-0.5 bg-gray-300" />
+  {/* Progress Steps */}
+  {currentStep !== STEPS.SUCCESS && (
+    <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm flex justify-around">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <nav aria-label="Progress">
+          <ol className="flex items-center justify-between">
+            {Object.entries({
+              [STEPS.USER_DETAILS]: "1",
+              [STEPS.DAMAGE_ASSESSMENT]: "2",
+              [STEPS.SUCCESS]: "3",
+            }).map(([stepKey, stepName], index) => {
+              const completed = isStepCompleted(stepKey)
+              const active = isStepActive(stepKey)
+
+              return (
+                <li key={stepKey} className="flex-1 flex items-center">
+                  <div className="flex items-center space-x-3">
+                    {/* Circle */}
+                    <div
+                      className={`
+                        flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all
+                        ${
+                          completed
+                            ? "bg-orange-500 border-orange-500 text-white"
+                            : active
+                            ? "border-orange-500 text-orange-600"
+                            : "border-gray-300 text-gray-400"
+                        }
+                      `}
+                    >
+                      {completed ? (
+                        <CheckCircle2 className="h-5 w-5" />
+                      ) : (
+                        getStepIcon(stepKey)
                       )}
-                    </li>
-                  )
-                })}
-              </ol>
-            </nav>
-          </div>
-        </div>
-      )} */}
-            {/* Progress Steps - Hide on success page */}
-      {currentStep !== STEPS.SUCCESS && (
-        <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <nav aria-label="Progress">
-              <ol className="flex items-center justify-center space-x-12">
-                {Object.entries({
-                  [STEPS.USER_DETAILS]: 'Personal Details',
-                  [STEPS.DAMAGE_ASSESSMENT]: 'Damage Assessment',
-                  [STEPS.SUCCESS]: 'Complete'
-                }).map(([stepKey, stepName], index) => {
-                  const completed = isStepCompleted(stepKey)
-                  const active = isStepActive(stepKey)
-                  
-                  return (
-                    <li key={stepKey} className="flex items-center">
-                      <div className="flex items-center space-x-4">
-                        <div
-                          className={`
-                            relative flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all duration-300 transform hover:scale-105
-                            ${
-                              completed
-                                ? 'bg-gradient-to-r from-orange-500 to-yellow-600 border-orange-500 text-white shadow-lg shadow-cyan-500/25'
-                                : active
-                                ? 'border-orange-500 text-yellow-600 bg-cyan-50 shadow-md shadow-cyan-500/20'
-                                : 'border-gray-300 text-gray-400 bg-gray-50'
-                            }
-                          `}
-                        >
-                          {completed && (
-                            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full blur-sm opacity-50"></div>
-                          )}
-                          {completed ? (
-                            <CheckCircle2 className="relative h-6 w-6" />
-                          ) : (
-                            <div className="relative">{getStepIcon(stepKey)}</div>
-                          )}
-                        </div>
-                        <span
-                          className={`
-                            text-base font-semibold transition-all duration-300
-                            ${
-                              active
-                                ? 'text-orange-600'
-                                : completed
-                                ? 'text-gray-800'
-                                : 'text-gray-500'
-                            }
-                          `}
-                        >
-                          {stepName}
-                        </span>
-                      </div>
-                      {index < 2 && (
-                        <div className={`hidden sm:block ml-10 w-20 h-1 rounded-full transition-colors duration-500 ${completed ? 'bg-gradient-to-r from-orange-400 to-yellow-500' : 'bg-gray-200'}`} />
-                      )}
-                    </li>
-                  )
-                })}
-              </ol>
-            </nav>
-          </div>
-        </div>
+                    </div>
+                    {/* Label */}
+                    <span
+                      className={`
+                        text-sm font-medium
+                        ${
+                          active
+                            ? "text-orange-600"
+                            : completed
+                            ? "text-gray-900"
+                            : "text-gray-500"
+                        }
+                      `}
+                    >
+                      {stepName}
+                    </span>
+                  </div>
+
+                  {/* Connector */}
+                  {index < 2 && (
+                    <div className="flex-1 h-0.5 mx-4 bg-gray-200" />
+                  )}
+                </li>
+              )
+            })}
+          </ol>
+        </nav>
+      </div>
+    </div>
+  )}
+
+  {/* Main Content */}
+  <main className="flex-1">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {currentStep === STEPS.USER_DETAILS && (
+        <UserDetailsForm
+          onNext={handleUserDetailsNext}
+          initialData={userDetails}
+        />
       )}
 
-      {/* Main Content */}
-      <main className="py-8 px-4 sm:px-6 lg:px-8">
-        {currentStep === STEPS.USER_DETAILS && (
-          <UserDetailsForm
-            onNext={handleUserDetailsNext}
-            initialData={userDetails}
-          />
-        )}
+      {currentStep === STEPS.DAMAGE_ASSESSMENT && (
+        <DamageAssessmentForm
+          onSubmit={handleDamageAssessmentSubmit}
+          onBack={handleBackToUserDetails}
+          userDetails={userDetails}
+          loading={loading}
+        />
+      )}
 
-        {currentStep === STEPS.DAMAGE_ASSESSMENT && (
-          <DamageAssessmentForm
-            onSubmit={handleDamageAssessmentSubmit}
-            onBack={handleBackToUserDetails}
-            userDetails={userDetails}
-            loading={loading}
-          />
-        )}
-
-        {currentStep === STEPS.SUCCESS && assessmentResult && (
-          <SuccessPage
-            assessmentData={assessmentResult}
-            onStartNew={handleStartNew}
-          />
-        )}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-white border-t mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="text-center text-sm text-gray-500">
-            <p>
-              © 2025 Vehicle Damage Assessment System. 
-              Secure, professional, and reliable.
-            </p>
-          </div>
-        </div>
-      </footer>
+      {currentStep === STEPS.SUCCESS && assessmentResult && (
+        <SuccessPage
+          assessmentData={assessmentResult}
+          onStartNew={handleStartNew}
+        />
+      )}
     </div>
+  </main>
+
+  {/* Footer */}
+  <footer className="bg-white border-t">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-gray-500">
+      © 2025 Vehicle Damage Assessment System. Secure, professional, and reliable.
+    </div>
+  </footer>
+</div>
+
     </>
 
   )
