@@ -184,7 +184,7 @@ function App() {
   {/* Footer */}
   <footer className="bg-white border-t">
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-gray-500">
-      © 2025 Vehicle Damage Assessment System. Secure, professional, and reliable.
+      © 2025 quick repair vehicle damage assessment
     </div>
   </footer>
 </div>
