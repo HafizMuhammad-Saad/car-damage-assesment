@@ -151,7 +151,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('email')}
                     error={errors.email?.message}
-                    placeholder="your.email@example.com"
+                    placeholder="info@example.com"
                   />
                 </div>
 
@@ -162,7 +162,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('mobile')}
                     error={errors.mobile?.message}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+45 12 34 56 78"
                   />
                   
                   <Input
@@ -189,7 +189,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     {...register('carNumberPlate')}
                     onChange={handleCarPlateChange}
                     error={errors.carNumberPlate?.message}
-                    placeholder="ABC123"
+                    placeholder="AB 12345"
                     className="uppercase font-mono text-lg tracking-wider"
                   />
                   {fetchingCarInfo && (

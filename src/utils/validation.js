@@ -13,7 +13,7 @@ export const userDetailsSchema = yup.object({
   mobile: yup
     .string()
     .required('Mobile number is required')
-    .matches(/^\+?[\d\s\-\(\)]{10,15}$/, 'Please enter a valid mobile number'),
+    .matches(/^\+45\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/, 'Please enter a valid mobile number'),
   address: yup
     .string()
     .required('Address is required')
