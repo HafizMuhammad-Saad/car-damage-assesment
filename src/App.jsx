@@ -90,13 +90,13 @@ function App() {
   {/* Progress Steps */}
   {currentStep !== STEPS.SUCCESS && (
     <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm flex justify-around">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 overflow-scroll">
         <nav aria-label="Progress">
           <ol className="flex items-center justify-between">
             {Object.entries({
-              [STEPS.USER_DETAILS]: "1",
-              [STEPS.DAMAGE_ASSESSMENT]: "2",
-              [STEPS.SUCCESS]: "3",
+              [STEPS.USER_DETAILS]: "User Details",
+              [STEPS.DAMAGE_ASSESSMENT]: "Assessment",
+              [STEPS.SUCCESS]: "Complete",
             }).map(([stepKey, stepName], index) => {
               const completed = isStepCompleted(stepKey)
               const active = isStepActive(stepKey)
