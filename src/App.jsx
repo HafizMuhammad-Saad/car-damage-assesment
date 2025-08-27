@@ -90,7 +90,7 @@ function App() {
   {/* Progress Steps */}
   {currentStep !== STEPS.SUCCESS && (
     <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm flex justify-around">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 overflow-scroll">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 overflow-x-auto">
         <nav aria-label="Progress">
           <ol className="flex items-center justify-between">
             {Object.entries({
