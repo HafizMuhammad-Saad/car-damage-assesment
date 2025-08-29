@@ -155,8 +155,7 @@ const CarViewer2D = ({
         </div>
       </div>
 
-      <div className="relative bg-gray-100" style={{ height: `${height}px` }}>
-        {/* Car Views Container */}
+      {/* <div className="relative bg-gray-100" style={{ height: `${height}px` }}>
         <div className="relative w-full h-full">
           {VIEWS.map((view) => (
             <div
@@ -182,12 +181,10 @@ const CarViewer2D = ({
                       left: `${part.x}%`,
                       width: `${part.width}%`,
                       height: `${part.height}%`,
-                      // transform: 'translate(-50%, -50%)',
                     }}
                     data-area={part.id}
                     onClick={() => handlePartClick(part.id, part.name)}
                     onError={(e) => {
-                      // Fallback for missing images
                       e.target.style.display = 'none';
                     }}
                   />
@@ -197,14 +194,12 @@ const CarViewer2D = ({
           ))}
         </div>
 
-        {/* Current View Indicator */}
         <div className="absolute top-4 left-4 bg-white bg-opacity-0 rounded-md px-3 py-2">
           <p className="text-sm font-medium text-gray-700">
             {VIEWS.find(v => v.id === currentView)?.label}
           </p>
         </div>
 
-        {/* View Navigation */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
           {VIEWS.map((view) => (
             <button
@@ -221,7 +216,82 @@ const CarViewer2D = ({
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
+
+      <div className="relative bg-gray-100" style={{ height: `${height}px` }}>
+  {/* Car Views Container */}
+  <div className="relative w-full h-full">
+    {VIEWS.map((view) =>
+      currentView === view.id ? (
+        <div
+          key={view.id}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <div className="relative w-full h-64">
+             {/* Base Car Body */}
+  <img
+    src={getImagePath(view.id, 'body.png')}
+    alt="Car Body"
+    className="absolute w-full h-full object-contain"
+    style={{ zIndex: 1 }}
+  />
+            {CAR_PARTS[view.id].filter((part) => part.id !== 'body') // body alag render ho chuki hai
+    .map((part) => (
+              <img
+                key={part.id}
+                src={getImagePath(view.id, part.file)}
+                alt={part.name}
+                className={cn(
+                  'absolute cursor-pointer transition-all duration-300 opacity-0 hover:opacity-50',
+                  isPartSelected(part.id) && 'opacity-30 brightness-75'
+                )}
+                style={{
+                  zIndex: part.zIndex,
+                  top: `${part.y}%`,
+                  left: `${part.x}%`,
+                  width: `${part.width}%`,
+                  height: `${part.height}%`,
+                  outline: '1px dashed red', // debug mode
+    opacity: 0.6 // show overlay
+                }}
+                data-area={part.id}
+                onClick={() => handlePartClick(part.id, part.name)}
+                onError={(e) => {
+                  e.target.style.display = 'none'
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      ) : null
+    )}
+  </div>
+
+  {/* Current View Indicator */}
+  <div className="absolute top-4 left-4 bg-white bg-opacity-0 rounded-md px-3 py-2">
+    <p className="text-sm font-medium text-gray-700">
+      {VIEWS.find((v) => v.id === currentView)?.label}
+    </p>
+  </div>
+
+  {/* View Navigation */}
+  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+    {VIEWS.map((view) => (
+      <button
+        key={view.id}
+        onClick={() => setCurrentView(view.id)}
+        className={cn(
+          'px-3 py-1 rounded-full text-xs font-medium transition-colors',
+          currentView === view.id
+            ? 'bg-blue-600 text-white'
+            : 'bg-white text-gray-700 hover:bg-gray-100'
+        )}
+      >
+        {view.name}
+      </button>
+    ))}
+  </div>
+</div>
 
       {/* Selected Parts Summary */}
       {(selectedParts.size > 0 || selectedAreas.length > 0) && (

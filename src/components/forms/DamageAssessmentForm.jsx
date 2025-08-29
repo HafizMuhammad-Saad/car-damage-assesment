@@ -22,6 +22,32 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
   const [selectedAreas, setSelectedAreas] = useState([])
   const [images, setImages] = useState([])
 
+  const [damages, setDamages] = useState({});
+  
+    const handleAreaSelect = (areaId, areaName) => {
+      setSelectedAreas(prev => {
+        const newAreas = [...prev];
+        const index = newAreas.indexOf(areaId);
+        
+        if (index > -1) {
+          newAreas.splice(index, 1);
+        } else {
+          newAreas.push(areaId);
+        }
+        
+        return newAreas;
+      });
+  
+      // You can add damage details here
+      setDamages(prev => ({
+        ...prev,
+        [areaId]: {
+          severity: 'moderate',
+          description: `${areaName} damage`
+        }
+      }));
+    };
+
   const {
     register,
     handleSubmit,
@@ -39,10 +65,10 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
     mode: 'onChange'
   })
 
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'damages'
-  })
+  // const { fields, append, remove } = useFieldArray({
+  //   control,
+  //   name: 'damages'
+  // })
 
   const watchedDamages = watch('damages')
 
@@ -57,38 +83,38 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
     trigger('damages')
   }, [watchedDamages, trigger])
 
-  const handleAreaSelect = (areaId, areaLabel) => {
-    const existingIndex = selectedAreas.indexOf(areaId)
+  // const handleAreaSelect = (areaId, areaLabel) => {
+  //   const existingIndex = selectedAreas.indexOf(areaId)
     
-    if (existingIndex > -1) {
-      // Remove area if already selected
-      const newSelectedAreas = selectedAreas.filter(id => id !== areaId)
-      setSelectedAreas(newSelectedAreas)
+  //   if (existingIndex > -1) {
+  //     // Remove area if already selected
+  //     const newSelectedAreas = selectedAreas.filter(id => id !== areaId)
+  //     setSelectedAreas(newSelectedAreas)
       
-      // Remove from form
-      const damageIndex = fields.findIndex(field => field.area === areaId)
-      if (damageIndex > -1) {
-        remove(damageIndex)
-      }
-    } else {
-      // Add new area
-      setSelectedAreas([...selectedAreas, areaId])
+  //     // Remove from form
+  //     const damageIndex = fields.findIndex(field => field.area === areaId)
+  //     if (damageIndex > -1) {
+  //       remove(damageIndex)
+  //     }
+  //   } else {
+  //     // Add new area
+  //     setSelectedAreas([...selectedAreas, areaId])
       
-      // Add to form
-      append({
-        id: Date.now().toString(),
-        area: areaId,
-        areaLabel: areaLabel,
-        severity: 'moderate',
-        comment: ''
-      })
-    }
-  }
+  //     // Add to form
+  //     append({
+  //       id: Date.now().toString(),
+  //       area: areaId,
+  //       areaLabel: areaLabel,
+  //       severity: 'moderate',
+  //       comment: ''
+  //     })
+  //   }
+  // }
 
-  const removeDamageArea = (index, areaId) => {
-    remove(index)
-    setSelectedAreas(prev => prev.filter(id => id !== areaId))
-  }
+  // const removeDamageArea = (index, areaId) => {
+  //   remove(index)
+  //   setSelectedAreas(prev => prev.filter(id => id !== areaId))
+  // }
 
   const handleImagesChange = (newImages) => {
     setImages(newImages)
@@ -121,9 +147,9 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
     }
   }
 
-  const getDamageByArea = (areaId) => {
-    return fields.find(damage => damage.area === areaId)
-  }
+  // const getDamageByArea = (areaId) => {
+  //   return fields.find(damage => damage.area === areaId)
+  // }
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-6">
@@ -139,10 +165,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
         <CarViewer2D
   onAreaSelect={handleAreaSelect}
   selectedAreas={selectedAreas}
-  damages={fields.reduce((acc, damage) => {
-              acc[damage.area] = damage
-              return acc
-            }, {})}
+  damages={damages}
   height={500}
 />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -287,7 +310,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
       </Card>
 
       {/* Summary */}
-      {(fields.length > 0 || images.length > 0) && (
+      {/* {(fields.length > 0 || images.length > 0) && (
         <Card className="bg-blue-50 border-blue-200">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4 text-sm text-blue-800">
@@ -302,7 +325,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
             </div>
           </CardContent>
         </Card>
-      )}
+      )} */}
     </div>
   )
 }
