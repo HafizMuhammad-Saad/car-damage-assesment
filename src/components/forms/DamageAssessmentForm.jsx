@@ -22,31 +22,26 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
   const [selectedAreas, setSelectedAreas] = useState([])
   const [images, setImages] = useState([])
 
-  const [damages, setDamages] = useState({});
   
-    const handleAreaSelect = (areaId, areaName) => {
-      setSelectedAreas(prev => {
-        const newAreas = [...prev];
-        const index = newAreas.indexOf(areaId);
-        
-        if (index > -1) {
-          newAreas.splice(index, 1);
-        } else {
-          newAreas.push(areaId);
-        }
-        
-        return newAreas;
-      });
-  
-      // You can add damage details here
-      setDamages(prev => ({
-        ...prev,
-        [areaId]: {
-          severity: 'moderate',
-          description: `${areaName} damage`
-        }
-      }));
-    };
+   const handleAreaSelect = (areaId, areaLabel) => {
+  const existingIndex = fields.findIndex(f => f.area === areaId);
+
+  if (existingIndex > -1) {
+    // already selected -> remove from form and UI highlights
+    remove(existingIndex);
+    setSelectedAreas(prev => prev.filter(id => id !== areaId));
+  } else {
+    // not selected -> add to form and highlights
+    append({
+      id: Date.now().toString(),
+      area: areaId,
+      areaLabel,
+      severity: 'moderate',
+      comment: ''
+    });
+    setSelectedAreas(prev => [...prev, areaId]);
+  }
+};
 
   const {
     register,
@@ -65,10 +60,10 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
     mode: 'onChange'
   })
 
-  // const { fields, append, remove } = useFieldArray({
-  //   control,
-  //   name: 'damages'
-  // })
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'damages'
+  })
 
   const watchedDamages = watch('damages')
 
@@ -165,12 +160,11 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
         <CarViewer2D
   onAreaSelect={handleAreaSelect}
   selectedAreas={selectedAreas}
-  damages={damages}
   height={500}
 />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* 3D Car Model */}
-        {/* <div>
+
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
           <CarModel
             onAreaSelect={handleAreaSelect}
             selectedAreas={selectedAreas}
@@ -180,91 +174,11 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
             }, {})}
             height={500}
           />
-        </div> */}
+        </div>
 
 
-        {/* Damage Details Form */}
-        {/* <div className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Damage Details</CardTitle>
-              <CardDescription>
-                Specify severity and add comments for each selected area
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {fields.length === 0 ? (
-                <div className="text-center py-8 text-gray-500">
-                  <AlertCircle className="mx-auto h-12 w-12 text-gray-300 mb-4" />
-                  <p>Select damaged areas on the 3D model to begin</p>
-                </div>
-              ) : (
-                <div className="space-y-4 max-h-96 overflow-y-auto">
-                  {fields.map((field, index) => (
-                    <div key={field.id} className="border rounded-lg p-4 bg-gray-50">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-medium text-gray-900">{field.areaLabel}</h4>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => removeDamageArea(index, field.area)}
-                          className="text-gray-400 hover:text-red-500"
-                        >
-                          <X className="h-4 w-4" />
-                        </Button>
-                      </div>
-                      
-                      <div className="space-y-3">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Severity
-                          </label>
-                          <div className="grid grid-cols-1 gap-2">
-                            {SEVERITY_OPTIONS.map(option => (
-                              <label key={option.value} className="flex items-start cursor-pointer">
-                                <input
-                                  type="radio"
-                                  {...register(`damages.${index}.severity`)}
-                                  value={option.value}
-                                  className="mt-1 mr-3"
-                                />
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${option.color}`}>
-                                      {option.label}
-                                    </span>
-                                  </div>
-                                  <p className="text-xs text-gray-600 mt-1">{option.description}</p>
-                                </div>
-                              </label>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <Input
-                          label="Additional Comments"
-                          as="textarea"
-                          rows={2}
-                          {...register(`damages.${index}.comment`)}
-                          placeholder="Describe the damage in detail..."
-                          className="text-sm"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              
-              {errors.damages && (
-                <p className="mt-2 text-sm text-red-600">
-                  {errors.damages.message}
-                </p>
-              )}
-            </CardContent>
-          </Card>
-        </div> */}
-      </div>
+       
+      </div> */}
 
       {/* Image Upload Section */}
       <Card>

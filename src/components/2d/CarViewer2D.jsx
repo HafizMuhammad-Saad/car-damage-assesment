@@ -5,25 +5,25 @@ import { cn } from '../../utils/cn';
 const CAR_PARTS = {
   frontLeft: [
     { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-    { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 40, y: 11, width: 26, height: 3 },
-    { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 25, x: 51, y: 26, width: 5, height: 7 },
-    { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 71, y: 18, width: 5, height: 22 },
-    { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 36, y: 26, width: 14, height: 38 },
-    { id: 'roofEdgeFront', name: 'Front Roof Edge', file: 'roofEdgeFront.png', zIndex: 19, x: 51, y: 12, width: 20, height: 8 },
-    { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 15, y: 46, width: 27, height: 20 },
+    { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 40, y: 16, width: 26, height: 3 },
+    { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 25, x: 51, y: 29, width: 5, height: 6 },
+    { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 69, y: 20, width: 7.5, height: 23 },
+    { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 36, y: 31, width: 14, height: 29 },
+    { id: 'roofEdgeFront', name: 'Front Roof Edge', file: 'roofEdgeFront.png', zIndex: 19, x: 51, y: 17, width: 20, height: 4 },
+    { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 15, y: 45, width: 26, height: 20 },
     { id: 'frontEdgeRear', name: 'Front Edge Rear', file: 'frontEdgeRear.png', zIndex: 18, x: 56, y: 12, width: 17, height: 6 },
-    { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 76, y: 36, width: 2, height: 13 },
-    { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 49, y: 30, width: 14, height: 31 },
-    { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 63, y: 28, width: 10, height: 28 },
+    { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 76, y: 36, width: 2, height: 18 },
+    { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 49, y: 32, width: 14, height: 27 },
+    { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 62, y: 31, width: 10.5, height: 25 },
     { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 22, x: 39, y: 48, width: 9, height: 23 },
     { id: 'wheelRearLeft', name: 'Rear Left Wheel', file: 'wheelRearLeft.png', zIndex: 15, x: 72, y: 40, width: 5, height: 22 },
-    { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 17, y: 31, width: 28, height: 12 },
-    { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 49, y: 39, width: 24, height: 27 },
-    { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 61, y: 17, width: 11, height: 12 },
-    { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 76, y: 29, width: 2, height: 7 },
-    { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 27, y: 41, width: 10, height: 10 },
-    { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 48, y: 15, width: 14, height: 17 },
-    { id: 'windowFront', name: 'Front Window', file: 'windowFront.png', zIndex: 35, x: 28, y: 16, width: 24, height: 15 },
+    { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 17, y: 32, width: 29, height: 13 },
+    { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 48, y: 42, width: 24.5, height: 21 },
+    { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 61, y: 19, width: 11, height: 13 },
+    { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 76, y: 31, width: 1.5, height: 6 },
+    { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 26, y: 42, width: 11, height: 8 },
+    { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 48, y: 19, width: 14, height: 17 },
+    { id: 'windowFront', name: 'Front Window', file: 'windowFront.png', zIndex: 35, x: 29, y: 19, width: 24, height: 14 },
   ],
   frontRight: [
   { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
@@ -39,7 +39,7 @@ const CAR_PARTS = {
   { id: 'doorRearRight', name: 'Rear Right Door', file: 'doorRearRight.png', zIndex: 30, x: 27, y: 28, width: 10, height: 28 },
   { id: 'wheelFrontRight', name: 'Front Right Wheel', file: 'wheelFrontRight.png', zIndex: 22, x: 52, y: 48, width: 9, height: 23 },
   { id: 'wheelRearRight', name: 'Rear Right Wheel', file: 'wheelRearRight.png', zIndex: 15, x: 23, y: 40, width: 5, height: 22 },
-  { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 55, y: 31, width: 28, height: 12 },
+  { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 54, y: 32, width: 29, height: 13 },
   { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 27, y: 39, width: 24, height: 27 },
   { id: 'windowRearRight', name: 'Rear Right Window', file: 'windowRearRight.png', zIndex: 35, x: 28, y: 17, width: 11, height: 12 },
   { id: 'lightRearRight', name: 'Rear Right Light', file: 'lightRearRight.png', zIndex: 35, x: 22.5, y: 29, width: 1.5, height: 7 },
@@ -48,29 +48,56 @@ const CAR_PARTS = {
   { id: 'windowFront', name: 'Front Window', file: 'windowFront.png', zIndex: 35, x: 48, y: 16, width: 24, height: 15 },
 ],
 
-  rearLeft: [
+//   rearLeft: [
+//   { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
+//   { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 51, y: 11, width: 26, height: 3 },
+//   { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 25, x: 60, y: 30, width: 6, height: 7 },
+//   { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 80, y: 18, width: 6, height: 30 },
+//   { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 46, y: 34, width: 14, height: 38 },
+//   { id: 'roofEdgeRear', name: 'Rear Roof Edge', file: 'roofEdgeRear.png', zIndex: 19, x: 63, y: 12, width: 20, height: 8 },
+//   { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 70, y: 45, width: 24, height: 30 },
+//   { id: 'rearEdgeFront', name: 'Rear Edge Front', file: 'rearEdgeFront.png', zIndex: 18, x: 50, y: 40, width: 30, height: 10 },
+//   { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 30, y: 42, width: 3 , height: 23 },
+//   { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 40, y: 36, width: 13, height: 32 },
+//   { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 73, y: 32, width: 10, height: 35 },
+//   { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 15, x: 62, y: 56, width: 9, height: 32 },
+//   { id: 'wheelRearLeft', name: 'Rear Left Wheel', file: 'wheelRearLeft.png', zIndex: 15, x: 82, y: 49, width: 5, height: 26 },
+//   { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 27, y: 35, width: 29, height: 17 },
+//   { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 58, y: 52, width: 24, height: 27 },
+//   { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 72, y: 17, width: 10, height: 16 },
+//   { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 86, y: 33, width: 2, height: 7 },
+//   { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 37, y: 49, width: 10, height: 10 },
+//   { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 41, y: 15, width: 14, height: 21 },
+//   { id: 'windowRear', name: 'Rear Window', file: 'windowRear.png', zIndex: 35, x: 74, y: 16, width: 17, height: 19 },
+// ],
+rearLeft: [
   { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-  { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 51, y: 11, width: 26, height: 3 },
-  { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 25, x: 60, y: 30, width: 6, height: 7 },
-  { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 80, y: 18, width: 6, height: 30 },
-  { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 46, y: 34, width: 14, height: 38 },
-  { id: 'roofEdgeRear', name: 'Rear Roof Edge', file: 'roofEdgeRear.png', zIndex: 19, x: 63, y: 12, width: 20, height: 8 },
-  { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 70, y: 45, width: 24, height: 30 },
-  { id: 'rearEdgeFront', name: 'Rear Edge Front', file: 'rearEdgeFront.png', zIndex: 18, x: 50, y: 40, width: 30, height: 10 },
-  { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 30, y: 42, width: 3 , height: 23 },
-  { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 40, y: 36, width: 13, height: 32 },
-  { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 73, y: 32, width: 10, height: 35 },
-  { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 15, x: 62, y: 56, width: 9, height: 32 },
-  { id: 'wheelRearLeft', name: 'Rear Left Wheel', file: 'wheelRearLeft.png', zIndex: 15, x: 82, y: 49, width: 5, height: 26 },
-  { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 27, y: 35, width: 29, height: 17 },
-  { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 58, y: 52, width: 24, height: 27 },
-  { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 72, y: 17, width: 10, height: 16 },
-  { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 86, y: 33, width: 2, height: 7 },
-  { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 37, y: 49, width: 10, height: 10 },
-  { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 41, y: 15, width: 14, height: 21 },
-  { id: 'windowRear', name: 'Rear Window', file: 'windowRear.png', zIndex: 35, x: 74, y: 16, width: 17, height: 19 },
+
+  // Rear bumper
+  { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 60, y: 39, width: 24, height: 23 },
+
+  // Doors
+  { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 29, y: 33, width: 14, height: 23 },
+  { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 42, y: 32, width: 15, height: 25 },
+
+  // Wheels
+  { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 22, x: 22, y: 39, width: 6, height: 22 },
+  { id: 'wheelRearLeft', name: 'Rear Left Wheel', file: 'wheelRearLeft.png', zIndex: 22, x: 53, y: 49, width: 7, height: 19 },
+
+  // Windows
+  { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 32, y: 17, width: 13, height: 17 },
+  { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 46, y: 17, width: 12, height: 16 },
+  { id: 'windowRear', name: 'Rear Window', file: 'windowRear.png', zIndex: 35, x: 64, y: 18, width: 17, height: 16 },
+
+  // Rear light (approximate, you can tweak later)
+  { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 82, y: 32, width: 3, height: 7 },
+
+  // Lower trim / hem (adjusted roughly to span under doors)
+  { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 28, y: 55, width: 44, height: 12 },
 ],
-  rearRight: [
+
+
+rearRight: [
     { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
     { id: 'roof', name: 'Roof', file: 'roof.png', zIndex: 20, x: 50, y: 20, width: 60, height: 20 },
     { id: 'roofEdge', name: 'Roof Edge', file: 'roofEdge.png', zIndex: 20, x: 50, y: 25, width: 40, height: 10 },
@@ -228,12 +255,13 @@ const CarViewer2D = ({
           key={view.id}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="relative w-full h-64">
+          {/* <div className="relative w-full h-64"> */}
+          <div className="relative w-full max-w-4xl mx-auto aspect-[4/2]">
              {/* Base Car Body */}
   <img
     src={getImagePath(view.id, 'body.png')}
     alt="Car Body"
-    className="absolute w-full h-full object-contain"
+    className="absolute inset-0 w-full h-full object-contain"
     style={{ zIndex: 1 }}
   />
             {CAR_PARTS[view.id].filter((part) => part.id !== 'body') // body alag render ho chuki hai
@@ -252,7 +280,7 @@ const CarViewer2D = ({
                   left: `${part.x}%`,
                   width: `${part.width}%`,
                   height: `${part.height}%`,
-                 
+
                 }}
                 data-area={part.id}
                 onClick={() => handlePartClick(part.id, part.name)}

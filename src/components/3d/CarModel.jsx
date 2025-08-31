@@ -68,8 +68,8 @@ function ClickableArea({ area, onAreaClick, isSelected, damage }) {
 
 // Realistic 3D car model using GLTF with fallback
 function RealCarModel() {
-  const { scene } = useGLTF('/models/car.glb', true, undefined, (error) => {
-    console.warn('Could not load car.glb, using fallback box model:', error.message);
+  const { scene } = useGLTF('/models/scene.gltf', true, undefined, (error) => {
+    console.warn('Could not load scene.gltf, using fallback box model:', error.message);
   });
 
   if (!scene) {
