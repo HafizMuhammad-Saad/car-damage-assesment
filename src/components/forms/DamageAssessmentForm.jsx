@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useForm, useFieldArray } from 'react-hook-form'
+import { useForm, useFieldArray, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { damageAssessmentSchema } from '../../utils/validation'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui/Card'
@@ -23,25 +23,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
   const [images, setImages] = useState([])
 
   
-   const handleAreaSelect = (areaId, areaLabel) => {
-  const existingIndex = fields.findIndex(f => f.area === areaId);
-
-  if (existingIndex > -1) {
-    // already selected -> remove from form and UI highlights
-    remove(existingIndex);
-    setSelectedAreas(prev => prev.filter(id => id !== areaId));
-  } else {
-    // not selected -> add to form and highlights
-    append({
-      id: Date.now().toString(),
-      area: areaId,
-      areaLabel,
-      severity: 'moderate',
-      comment: ''
-    });
-    setSelectedAreas(prev => [...prev, areaId]);
-  }
-};
+  
 
   const {
     register,
@@ -59,6 +41,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
     },
     mode: 'onChange'
   })
+   // Keep selectedAreas synced if someone modifies fields from UI
+ 
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -111,6 +95,28 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
   //   setSelectedAreas(prev => prev.filter(id => id !== areaId))
   // }
 
+ useEffect(() => {
+    setSelectedAreas(fields.map(f => f.area));
+  }, [fields]);
+ const handleAreaSelect = (areaId, areaLabel) => {
+  const existingIndex = fields.findIndex(f => f.area === areaId);
+
+  if (existingIndex > -1) {
+    // already selected -> remove from form and UI highlights
+    remove(existingIndex);
+    setSelectedAreas(prev => prev.filter(id => id !== areaId));
+  } else {
+    // not selected -> add to form and highlights
+    append({
+      id: Date.now().toString(),
+      area: areaId,
+      areaLabel,
+      severity: 'moderate',
+      comment: ''
+    });
+    setSelectedAreas(prev => [...prev, areaId]);
+  }
+};
   const handleImagesChange = (newImages) => {
     setImages(newImages)
   }
@@ -163,22 +169,62 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
   height={500}
 />
 
-      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div>
-          <CarModel
-            onAreaSelect={handleAreaSelect}
-            selectedAreas={selectedAreas}
-            damages={fields.reduce((acc, damage) => {
-              acc[damage.area] = damage
-              return acc
-            }, {})}
-            height={500}
-          />
-        </div>
+{/* Selected damages panel */}
+      {/* <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Selected Damages</CardTitle>
+          <CardDescription>Adjust severity and add notes.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {fields.length === 0 ? (
+            <p className="text-sm text-gray-500">No damaged areas selected yet. Click the car to add one.</p>
+          ) : (
+            fields.map((field, index) => (
+              <div key={field.id} className="flex items-start gap-4 border p-3 rounded-lg">
+                <div className="w-36">
+                  <div className="text-sm font-medium">{field.areaLabel}</div>
+                  <div className="text-xs text-gray-500">{field.area}</div>
+                </div>
 
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
+                  <Controller
+                    control={control}
+                    name={`damages.${index}.severity`}
+                    defaultValue={field.severity}
+                    render={({ field: ctl }) => (
+                      <select {...ctl} className="border rounded px-2 py-1">
+                        <option value="light">Light</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="severe">Severe</option>
+                      </select>
+                    )}
+                  />
 
-       
-      </div> */}
+                  <input
+                    {...register(`damages.${index}.comment`)}
+                    defaultValue={field.comment}
+                    placeholder="Description / notes"
+                    className="border rounded px-2 py-1 w-full col-span-2"
+                  />
+                </div>
+
+                <div className="flex items-start">
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    onClick={() => {
+                      remove(index);
+                      setSelectedAreas(prev => prev.filter(id => id !== field.area));
+                    }}
+                  >
+                    Remove
+                  </Button>
+                </div>
+              </div>
+            ))
+          )}
+        </CardContent>
+      </Card> */}
 
       {/* Image Upload Section */}
       <Card>
