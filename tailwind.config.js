@@ -20,10 +20,10 @@ export default {
           900: "#7c2d12"
         }
       },
-      fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        varela: ["\"Varela Round\"", "sans-serif"]
-      }
+        fontFamily: {
+        vag: ['VagRounded', 'sans-serif'],
+        heebo: ['Heebo', 'sans-serif'],
+      },
     }
   },
   plugins: []

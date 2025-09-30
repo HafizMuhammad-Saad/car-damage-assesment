@@ -26,14 +26,94 @@ function App() {
   const handleDamageAssessmentSubmit = async (assessmentData) => {
     setLoading(true)
     try {
-      const result = await submitAssessment(assessmentData)
-      
-      if (result.success) {
-        setAssessmentResult(result)
-        setCurrentStep(STEPS.SUCCESS)
-      } else {
-        alert('Error submitting assessment: ' + result.error)
-      }
+      // const result = await submitAssessment(assessmentData)
+       // Merge data from step 1 (UserDetails) + step 2 (DamageAssessment)
+    const finalData = {
+      ...userDetails,          // from UserDetailsForm
+      ...assessmentData,       // from DamageAssessmentForm
+      submittedAt: new Date().toISOString(),
+    };
+
+    const formData = new FormData();
+    // Object.keys(finalData).forEach((key) => {
+    //   if (key === "images") {
+    //     // Attach files
+    //     finalData.images.forEach((img, index) => {
+    //       if (img.file instanceof File) {
+    //         formData.append(`image_${index + 1}`, img.file, img.name);
+    //       }
+    //     });
+    //   } else if (typeof finalData[key] === "object") {
+    //     // Stringify nested objects/arrays (like damages)
+    //     formData.append(key, JSON.stringify(finalData[key]));
+    //   } else {
+    //     formData.append(key, finalData[key]);
+    //   }
+    // });
+     // --- User Details ---
+    formData.append("name", finalData.name || "");
+    formData.append("email", finalData.email || "");
+    formData.append("mobile", finalData.mobile || "");
+    formData.append("address", finalData.address || "");
+    formData.append("carNumberPlate", finalData.carNumberPlate || "");
+    formData.append("serviceType", finalData.serviceType || "");
+
+    // --- Car Info (flatten key fields) ---
+    if (finalData.carInfo) {
+      formData.append("car_make", finalData.carInfo.make || "");
+      formData.append("car_model", finalData.carInfo.model || "");
+
+    }
+
+        // --- Damages (flatten each one) ---
+    if (Array.isArray(finalData.damages)) {
+      finalData.damages.forEach((damage, index) => {
+        formData.append(
+          `damage_${index + 1}`,
+          `${damage.areaLabel} `
+        );
+      });
+    }
+
+       // --- Images (files) ---
+    if (Array.isArray(finalData.images)) {
+      finalData.images.forEach((img, index) => {
+        if (img.file instanceof File) {
+          formData.append(`image_${index + 1}`, img.file, img.name);
+        }
+      });
+    }
+
+     // --- Metadata ---
+    formData.append("totalDamageAreas", finalData.damages?.length || 0);
+    formData.append("submittedAt", finalData.submittedAt);
+
+    // --- FormSubmit settings ---
+    formData.append("_subject", "🚗 New Vehicle Damage Assessment");
+    formData.append("_template", "table"); // makes email structured
+    formData.append("_captcha", "false");  // disable captcha
+
+    // --- Auto reply to customer ---
+formData.append("_autoresponse", "✅ Thanks for using our service! We will call you shortly.");
+
+
+     const response = await fetch("https://formsubmit.co/f535833870e1931eef60a84b7cd0e244", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      setAssessmentResult(finalData);
+      setCurrentStep(STEPS.SUCCESS);
+    } else {
+      alert("Error submitting assessment");
+    }
+      // if (result.success) {
+      //   setAssessmentResult(result)
+      //   setCurrentStep(STEPS.SUCCESS)
+      // } else {
+      //   alert('Error submitting assessment: ' + result.error)
+      // }
     } catch (error) {
       alert('Error submitting assessment: ' + error.message)
     } finally {

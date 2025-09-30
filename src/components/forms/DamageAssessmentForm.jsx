@@ -6,10 +6,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui
 import Button from '../ui/Button'
 import Input from '../ui/Input'
 import ImageUpload from '../ui/ImageUpload'
-import CarModel from '../3d/CarModel'
 import { X, AlertCircle } from 'lucide-react'
-import CarViewerDemo from '../2d/CarViewerDemo'
 import CarViewer2D from '../2d/CarViewer2D'
+import VanViewer2D from '../2d/VanViewer2D'
 
 const SEVERITY_OPTIONS = [
   { value: 'light', label: 'Light', description: 'Minor scratches or small dents', color: 'bg-yellow-100 text-yellow-800' },
@@ -17,16 +16,20 @@ const SEVERITY_OPTIONS = [
   { value: 'severe', label: 'Severe', description: 'Major damage, significant repair needed', color: 'bg-red-100 text-red-800' }
 ]
 
-const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
+const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   const [loading, setLoading] = useState(false)
   const [selectedAreas, setSelectedAreas] = useState([])
   const [images, setImages] = useState([])
 
-  
-  
+  const [vehicleType, setVehicleType] = useState("car");
 
+  // const handleVehicleTypeChange = (e) => {
+  //   setVehicleType(e.target.value);
+  // };
+  
+ 
   const {
-    register,
+    /*register,*/
     handleSubmit,
     formState: { errors, isValid },
     control,
@@ -129,7 +132,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
       await new Promise(resolve => setTimeout(resolve, 1500))
       
       const assessmentData = {
-        userDetails,
+              vehicleType,  // 👈 added here
+        // userDetails,
         damages: data.damages,
         images: images.map(img => ({
           name: img.name,
@@ -148,12 +152,19 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
     }
   }
 
+   useEffect(() => {
+  // reset when user switches vehicle
+  setSelectedAreas([]);
+  setValue("damages", []); 
+}, [vehicleType, setValue]);
+
+
   // const getDamageByArea = (areaId) => {
   //   return fields.find(damage => damage.area === areaId)
   // }
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-6">
+    <div className="w-full max-w-6xl mx-auto space-y-6 mt-5">
       <Card>
         <CardHeader>
           <CardTitle>Step 2: Damage Assessment</CardTitle>
@@ -162,12 +173,47 @@ const DamageAssessmentForm = ({ onSubmit, onBack, userDetails }) => {
           </CardDescription>
         </CardHeader>
       </Card>
+ {/* Vehicle Selector */}
+    <div className="flex gap-6">
+  <div
+    onClick={() => setVehicleType("car")}
+    className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${
+      vehicleType === "car"
+        ? "border-blue-600 bg-blue-50"
+        : "border-gray-300 hover:border-blue-400"
+    }`}
+  >
+    <span className="text-3xl">🚗</span>
+    <p className="mt-2 text-sm font-medium">Car</p>
+  </div>
 
-        <CarViewer2D
-  onAreaSelect={handleAreaSelect}
-  selectedAreas={selectedAreas}
-  height={500}
-/>
+  <div
+    onClick={() => setVehicleType("van")}
+    className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${
+      vehicleType === "van"
+        ? "border-blue-600 bg-blue-50"
+        : "border-gray-300 hover:border-blue-400"
+    }`}
+  >
+    <span className="text-3xl">🚐</span>
+    <p className="mt-2 text-sm font-medium">Van</p>
+  </div>
+</div>
+
+    {/* Viewer Switch */}
+    {vehicleType === "car" ? (
+      <CarViewer2D
+        onAreaSelect={handleAreaSelect}
+        selectedAreas={selectedAreas}
+        height={500}
+      />
+    ) : (
+      <VanViewer2D
+        onAreaSelect={handleAreaSelect}
+        selectedAreas={selectedAreas}
+        height={500}
+      />
+    )}
 
 {/* Selected damages panel */}
       {/* <Card>

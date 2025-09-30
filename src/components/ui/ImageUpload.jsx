@@ -75,6 +75,10 @@ const ImageUpload = ({
       </label>
 
       {/* Upload Area */}
+      <label 
+              htmlFor="image-upload" 
+              className="text-primary-600 cursor-pointer hover:text-primary-700"
+            >
       <div
         className={cn(
           'border-2 border-dashed rounded-lg p-6 text-center transition-colors',
@@ -98,18 +102,16 @@ const ImageUpload = ({
           <Upload className="h-12 w-12 text-gray-400 mb-4" />
           <p className="text-sm text-gray-600 mb-2">
             Drag and drop images here, or{' '}
-            <label 
-              htmlFor="image-upload" 
-              className="text-primary-600 cursor-pointer hover:text-primary-700"
-            >
+            
               browse files
-            </label>
           </p>
           <p className="text-xs text-gray-500">
             PNG, JPG, GIF up to 10MB each (max {maxImages} images)
           </p>
         </div>
       </div>
+                  </label>
+
 
       {error && (
         <p className="mt-1 text-sm text-red-600">

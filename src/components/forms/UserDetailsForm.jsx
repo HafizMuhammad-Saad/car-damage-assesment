@@ -20,11 +20,11 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
   } = useForm({
     resolver: yupResolver(userDetailsSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      mobile: '',
-      address: '',
-      carNumberPlate: '',
+      name: 'test',
+      email: 'test@example.com',
+      mobile: '+45 12 34 56 78',
+      address: 'abc123 street, city, country',
+      carNumberPlate: 'AB 12345',
       serviceType: '',
       ...initialData
     },

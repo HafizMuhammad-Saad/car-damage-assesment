@@ -2,26 +2,26 @@
 import { cn } from '../../utils/cn';
 
 // Define car parts for each view with positioning coordinates
-const CAR_PARTS = {
+const VAN_PARTS = {
   frontLeft: [
     { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-    { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 40, y: 16, width: 26, height: 3 },
+    { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 38, y: 18, width: 40, height: 6 },
     { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 30, x: 51, y: 29, width: 5, height: 6 },
     { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 69, y: 20, width: 7.5, height: 23 },
-    { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 35, y: 31, width: 15, height: 29 },
+    { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 37, y: 42, width: 10, height: 24 },
     { id: 'roofEdgeFront', name: 'Front Roof Edge 2', file: 'roofEdgeFront.png', zIndex: 35, x: 46, y: 23, width: 12, height: 4, rotate: -38 },
-    { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 15, y: 45, width: 26, height: 20 },
+    { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 19, y: 56, width: 21, height: 22 },
     { id: 'frontEdgeRear', name: 'Front Edge Rear', file: 'frontEdgeRear.png', zIndex: 18, x: 57, y: 17, width: 15, height: 4 },
     { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 76, y: 36, width: 2, height: 18 },
     { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 49, y: 32, width: 14, height: 27 },
     { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 62, y: 31, width: 10.5, height: 25 },
-    { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 22, x: 39, y: 48, width: 9, height: 23 },
+    { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 22, x: 39, y: 63, width: 9, height: 21 },
     { id: 'wheelRearLeft', name: 'Rear Left Wheel', file: 'wheelRearLeft.png', zIndex: 15, x: 72, y: 40, width: 5, height: 22 },
-    { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 19, x: 17, y: 32, width: 29, height: 13 },
+    { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 19, x: 21, y: 39, width: 22, height: 15 },
     { id: 'hemLeft', name: 'Hem Left', file: 'hem.png', zIndex: 35, x: 48, y: 42, width: 24.5, height: 21 },
     { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 61, y: 19, width: 11, height: 13 },
     { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 76, y: 31, width: 1.5, height: 6 },
-    { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 26, y: 42, width: 11, height: 8 },
+    { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 29, y: 54, width: 10, height: 8 },
     { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 48, y: 19, width: 14, height: 17 },
     { id: 'windowFront', name: 'Front Window', file: 'windowFront.png', zIndex: 25, x: 29, y: 19, width: 24, height: 14 },
   ],
@@ -51,28 +51,7 @@ const CAR_PARTS = {
   { id: 'windowFront', name: 'Front Window', file: 'windowFront.png', zIndex: 35, x: 47, y: 20, width: 24, height: 13 },
 ],
 
-//   rearLeft: [
-//   { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-//   { id: 'hood', name: 'Hood', file: 'hood.png', zIndex: 20, x: 51, y: 11, width: 26, height: 3 },
-//   { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 25, x: 60, y: 30, width: 6, height: 7 },
-//   { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 80, y: 18, width: 6, height: 30 },
-//   { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 46, y: 34, width: 14, height: 38 },
-//   { id: 'roofEdgeRear', name: 'Rear Roof Edge', file: 'roofEdgeRear.png', zIndex: 19, x: 63, y: 12, width: 20, height: 8 },
-//   { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 70, y: 45, width: 24, height: 30 },
-//   { id: 'rearEdgeFront', name: 'Rear Edge Front', file: 'rearEdgeFront.png', zIndex: 18, x: 50, y: 40, width: 30, height: 10 },
-//   { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 30, y: 42, width: 3 , height: 23 },
-//   { id: 'doorFrontLeft', name: 'Front Left Door', file: 'doorFrontLeft.png', zIndex: 40, x: 40, y: 36, width: 13, height: 32 },
-//   { id: 'doorRearLeft', name: 'Rear Left Door', file: 'doorRearLeft.png', zIndex: 30, x: 73, y: 32, width: 10, height: 35 },
-//   { id: 'wheelFrontLeft', name: 'Front Left Wheel', file: 'wheelFrontLeft.png', zIndex: 15, x: 62, y: 56, width: 9, height: 32 },
-//   { id: 'wheelRearLeft', name: 'Rear Left Wheel', file: 'wheelRearLeft.png', zIndex: 15, x: 82, y: 49, width: 5, height: 26 },
-//   { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 35, x: 27, y: 35, width: 29, height: 17 },
-//   { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 58, y: 52, width: 24, height: 27 },
-//   { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 72, y: 17, width: 10, height: 16 },
-//   { id: 'lightRearLeft', name: 'Rear Left Light', file: 'lightRearLeft.png', zIndex: 35, x: 86, y: 33, width: 2, height: 7 },
-//   { id: 'lightFrontLeft', name: 'Front Left Light', file: 'lightFrontLeft.png', zIndex: 35, x: 37, y: 49, width: 10, height: 10 },
-//   { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 41, y: 15, width: 14, height: 21 },
-//   { id: 'windowRear', name: 'Rear Window', file: 'windowRear.png', zIndex: 35, x: 74, y: 16, width: 17, height: 19 },
-// ],
+
 rearLeft: [
   { id: 'body', name: 'Car Body', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
   { id: 'roofEdgeLeft', name: 'Left Roof Edge', file: 'roofEdgeLeft.png', zIndex: 11, x: 31, y: 16, width: 33, height: 14 },
@@ -133,7 +112,7 @@ rearRight: [
   ],
 };
 
-const VIEWS = [
+const VAN_VIEWS = [
   { id: 'frontLeft', name: 'Front Left', label: 'Front Left View' },
   { id: 'frontRight', name: 'Front Right', label: 'Front Right View' },
   { id: 'rearLeft', name: 'Rear Left', label: 'Rear Left View' },
@@ -166,13 +145,13 @@ const CarViewer2D = ({
   };
 
   const rotateCar = () => {
-    const currentIndex = VIEWS.findIndex(v => v.id === currentView);
-    const nextIndex = (currentIndex + 1) % VIEWS.length;
-    setCurrentView(VIEWS[nextIndex].id);
+    const currentIndex = VAN_VIEWS.findIndex(v => v.id === currentView);
+    const nextIndex = (currentIndex + 1) % VAN_VIEWS.length;
+    setCurrentView(VAN_VIEWS[nextIndex].id);
   };
 
   const getImagePath = (view, partFile) => {
-    return `/static/assets/img/car/${view}/${partFile}`;
+    return `/static/assets/img/van/${view}/${partFile}`;
   };
 
   const isPartSelected = (partId) => {
@@ -181,19 +160,19 @@ const CarViewer2D = ({
 
   return (
     <div className={cn('w-full border rounded-lg overflow-hidden', className)}>
-      <div className="p-4 bg-white border-b">
+      <div className="p-4 border-b">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900">Car Damage Assessment</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Van Damage Assessment</h3>
             <p className="text-sm text-gray-600 mt-1">
-              Click on car parts to mark damage. Rotate to view different angles.
+              Click on van parts to mark damage. Rotate to view different angles.
             </p>
           </div>
           <button
             onClick={rotateCar}
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
           >
-            Rotate Car
+            Rotate Van
           </button>
         </div>
       </div>
@@ -264,7 +243,7 @@ const CarViewer2D = ({
       <div className="relative" style={{ height: `${height}px` }}>
   {/* Car Views Container */}
   <div className="relative w-full h-full">
-    {VIEWS.map((view) =>
+    {VAN_VIEWS.map((view) =>
       currentView === view.id ? (
         <div
           key={view.id}
@@ -279,7 +258,7 @@ const CarViewer2D = ({
     className="absolute inset-0 w-full h-full object-contain"
     style={{ zIndex: 1 }}
   />
-            {CAR_PARTS[view.id].filter((part) => part.id !== 'body') // body alag render ho chuki hai
+            {VAN_PARTS[view.id].filter((part) => part.id !== 'body') // body alag render ho chuki hai
     .map((part) => (
               <img
                 key={part.id}
@@ -313,13 +292,13 @@ const CarViewer2D = ({
   {/* Current View Indicator */}
   <div className="absolute top-4 left-4 bg-white bg-opacity-0 rounded-md px-3 py-2">
     <p className="text-sm font-medium text-gray-700">
-      {VIEWS.find((v) => v.id === currentView)?.label}
+      {VAN_VIEWS.find((v) => v.id === currentView)?.label}
     </p>
   </div>
 
   {/* View Navigation */}
   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-    {VIEWS.map((view) => (
+    {VAN_VIEWS.map((view) => (
       <button
         key={view.id}
         onClick={() => setCurrentView(view.id)}
@@ -344,7 +323,7 @@ const CarViewer2D = ({
           </h4>
           <div className="flex flex-wrap gap-2">
             {Array.from(selectedParts).map((partId) => {
-              const part = Object.values(CAR_PARTS).flat().find(p => p.id === partId);
+              const part = Object.values(VAN_PARTS).flat().find(p => p.id === partId);
               return (
                 <span
                   key={partId}
