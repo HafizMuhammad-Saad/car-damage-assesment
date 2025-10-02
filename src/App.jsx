@@ -2,6 +2,7 @@ import { useState } from 'react'
 import UserDetailsForm from './components/forms/UserDetailsForm'
 import DamageAssessmentForm from './components/forms/DamageAssessmentForm'
 import SuccessPage from './pages/SuccessPage'
+// eslint-disable-next-line no-unused-vars
 import { submitAssessment, getVehicles } from './services/api'
 import { Car, FileText, CheckCircle2 } from 'lucide-react'
 import Hero from './pages/Hero'

@@ -42,7 +42,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
       // Use mock API service
       const { getVehicle } = await import('../../services/api')
       const result = await getVehicle(plateNumber)
-      
+
       if (result.success) {
         setCarInfo(result.data)
       } else {
@@ -59,7 +59,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
   const handleCarPlateChange = (e) => {
     const value = e.target.value.toUpperCase()
     setValue('carNumberPlate', value)
-    
+
     // Debounce the API call
     clearTimeout(window.carInfoTimer)
     window.carInfoTimer = setTimeout(() => {
@@ -69,16 +69,16 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
   const onSubmit = async (data) => {
     setLoading(true)
-    
+
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 1000))
-    
+
     const formData = {
       ...data,
       carInfo,
       timestamp: new Date().toISOString()
     }
-    
+
     setLoading(false)
     onNext(formData)
   }
@@ -90,24 +90,24 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
         {/* <div className="mb-8">
           <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-semibold font-varela">
+              <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-semibold ">
                 1
               </div>
-              <span className="ml-3 text-sm font-medium text-orange-600 font-varela">Personal Details</span>
+              <span className="ml-3 text-sm font-medium text-orange-600 ">Personal Details</span>
             </div>
             <div className="w-16 h-1 bg-gray-200 rounded"></div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold font-varela">
+              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold ">
                 2
               </div>
-              <span className="ml-3 text-sm font-medium text-gray-500 font-varela">Damage Assessment</span>
+              <span className="ml-3 text-sm font-medium text-gray-500 ">Damage Assessment</span>
             </div>
             <div className="w-16 h-1 bg-gray-200 rounded"></div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold font-varela">
+              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold ">
                 3
               </div>
-              <span className="ml-3 text-sm font-medium text-gray-500 font-varela">Review & Submit</span>
+              <span className="ml-3 text-sm font-medium text-gray-500 ">Review & Submit</span>
             </div>
           </div>
         </div> */}
@@ -119,14 +119,14 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
-                <CardTitle className="font-varela text-orange-900">Personal & Vehicle Details</CardTitle>
-                <CardDescription className="font-varela">
+                <CardTitle className=" text-orange-900">Personal & Vehicle Details</CardTitle>
+                <CardDescription className="">
                   Please provide your contact information and vehicle details to get started with your car damage assessment.
                 </CardDescription>
               </div>
             </div>
           </CardHeader>
-          
+
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               {/* Personal Information Section */}
@@ -135,7 +135,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   <User className="w-5 h-5 text-gray-600" />
                   <h3 className="text-lg font-semibold text-gray-900">Personal Information</h3>
                 </div>
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <Input
                     label="Full Name"
@@ -144,7 +144,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     error={errors.name?.message}
                     placeholder="Enter your full name"
                   />
-                  
+
                   <Input
                     label="Email Address"
                     type="email"
@@ -164,7 +164,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     error={errors.mobile?.message}
                     placeholder="+45 12 34 56 78"
                   />
-                  
+
                   <Input
                     label="Address"
                     required
@@ -181,7 +181,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   <Car className="w-5 h-5 text-gray-600" />
                   <h3 className="text-lg font-semibold text-gray-900">Vehicle Information</h3>
                 </div>
-                
+
                 <div className="relative max-w-md">
                   <Input
                     label="Car Number Plate"
@@ -216,7 +216,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                         <p className="text-sm text-gray-600">Model</p>
                         <p className="font-semibold text-gray-900">{carInfo.model}</p>
                       </div>
-                     
+
                     </div>
                   </div>
                 )}
@@ -228,7 +228,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   <Shield className="w-5 h-5 text-gray-600" />
                   <h3 className="text-lg font-semibold text-gray-900">Service Type</h3>
                 </div>
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <label className="relative cursor-pointer group flex h-full">
                     <input
@@ -237,7 +237,14 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       value="insurance"
                       className="sr-only peer"
                     />
-                    <div className="p-6 border-2 rounded-xl peer-checked:border-orange-500 peer-checked:bg-orange-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
+                    <div className="p-6 border-2 rounded-xl
+    transition-colors duration-300
+    peer-checked:border-orange-500 
+    peer-checked:bg-orange-500 
+    peer-checked:text-white
+    hover:bg-orange-500 hover:text-white 
+    hover:border-orange-500
+    group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
                           <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-500 relative flex items-center justify-center">
@@ -246,14 +253,20 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Shield className="w-5 h-5 text-orange-600" />
-                            <h4 className="text-lg font-semibold text-gray-900 font-varela">Insurance Claim</h4>
+                            <Shield className="w-5 h-5 transition-colors duration-300 
+            group-hover:text-white 
+            text-orange-600 
+            peer-checked:text-white" />
+                            <h4 className="text-lg font-semibold ">Insurance Claim</h4>
                           </div>
-                          <p className="text-gray-600 leading-relaxed font-varela">
+                          <p className=" leading-relaxed ">
                             Process your claim through your insurance company. We'll handle all the paperwork and coordination.
                           </p>
-                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-600 font-varela">
-                            <CheckCircle className="w-4 h-4" />
+                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-700 ">
+                            <CheckCircle className="w-4 h-4 transition-colors duration-300
+            text-green-600
+            group-hover:text-white
+            peer-checked:text-white" />
                             <span>Direct billing available</span>
                           </div>
                         </div>
@@ -268,7 +281,14 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       value="self-paid"
                       className="sr-only peer"
                     />
-                    <div className="p-6 border-2 rounded-xl peer-checked:border-orange-500 peer-checked:bg-orange-50 hover:bg-gray-50 transition-all duration-200 group-hover:shadow-md">
+                    <div className="p-6 border-2 rounded-xl
+    transition-colors duration-300
+    peer-checked:border-orange-500 
+    peer-checked:bg-orange-500 
+    peer-checked:text-white
+    hover:bg-orange-500 hover:text-white 
+    hover:border-orange-500
+    group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
                           <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-500 relative flex items-center justify-center">
@@ -277,14 +297,20 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <CreditCard className="w-5 h-5 text-orange-600" />
-                            <h4 className="text-lg font-semibold text-gray-900 font-varela">Self-Paid Service</h4>
+                            <CreditCard className="w-5 h-5 transition-colors duration-300 
+            text-orange-600 
+            group-hover:text-white 
+            peer-checked:text-white" />
+                            <h4 className="text-lg font-semibold ">Self-Paid Service</h4>
                           </div>
-                          <p className="text-gray-600 leading-relaxed font-varela">
+                          <p className="leading-relaxed ">
                             Pay for repairs directly and get faster service with flexible payment options.
                           </p>
-                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-600 font-varela">
-                            <CheckCircle className="w-4 h-4" />
+                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-700">
+                            <CheckCircle className="w-4 h-4 transition-colors duration-300
+            text-green-600
+            group-hover:text-white
+            peer-checked:text-white" />
                             <span>Priority scheduling</span>
                           </div>
                         </div>
@@ -292,7 +318,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     </div>
                   </label>
                 </div>
-                
+
                 {errors.serviceType && (
                   <p className="text-sm text-red-600 flex items-center gap-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -305,8 +331,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
               {/* Submit Button */}
               <div className="flex justify-end pt-8 border-t border-gray-100">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   loading={loading}
                   disabled={!isValid}
                   size="lg"

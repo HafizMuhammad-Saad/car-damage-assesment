@@ -228,69 +228,98 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
   // No nested .data anymore
   const result = assessmentData;
 
-  const handlePrint = () => {
-    window.print();
-  };
+  // const handlePrint = () => {
+  //   window.print();
+  // };
 
-  const handleDownloadSummary = () => {
-    const summary = `
-VEHICLE DAMAGE ASSESSMENT SUMMARY
-================================
+//   const handleDownloadSummary = () => {
+//     const summary = `
+// VEHICLE DAMAGE ASSESSMENT SUMMARY
+// ================================
 
-Submission Date: ${new Date(result.submittedAt).toLocaleDateString()}
+// Submission Date: ${new Date(result.submittedAt).toLocaleDateString()}
 
-CUSTOMER INFORMATION:
-Name: ${result.name}
-Email: ${result.email}
-Service Type: ${result.serviceType}
+// CUSTOMER INFORMATION:
+// Name: ${result.name}
+// Email: ${result.email}
+// Service Type: ${result.serviceType}
 
-DAMAGE SUMMARY:
-Total Areas Affected: ${result.totalDamageAreas}
-Images Submitted: ${result.images?.length || 0}
+// DAMAGE SUMMARY:
+// Total Areas Affected: ${result.totalDamageAreas}
+// Images Submitted: ${result.images?.length || 0}
 
-Raw Damage Data:
-${JSON.stringify(result.damages, null, 2)}
-    `;
+// Raw Damage Data:
+// ${JSON.stringify(result.damages, null, 2)}
+//     `;
 
-    const blob = new Blob([summary], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `assessment-summary.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
+//     const blob = new Blob([summary], { type: "text/plain" });
+//     const url = URL.createObjectURL(blob);
+//     const a = document.createElement("a");
+//     a.href = url;
+//     a.download = `assessment-summary.txt`;
+//     document.body.appendChild(a);
+//     a.click();
+//     document.body.removeChild(a);
+//     URL.revokeObjectURL(url);
+//   };
 
   return (
-    <div className="p-8 text-center">
-      <h2 className="text-2xl font-bold text-green-600">
-        ✅ Assessment Submitted Successfully
-      </h2>
-      <p className="mt-4 text-gray-700">
-        Thank you, {result.name}. We’ve received your assessment.
-      </p>
+   <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+      <div className="bg-white shadow-lg rounded-lg max-w-lg w-full p-8 text-center">
+        {/* Success Icon */}
+        <div className="flex justify-center mb-6">
+          <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center">
+            <svg
+              className="h-10 w-10 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+        </div>
 
-      <div className="mt-6 flex justify-center space-x-4">
-        <button
-          onClick={handlePrint}
-          className="px-4 py-2 bg-gray-200 rounded"
-        >
-          Print
-        </button>
-        <button
-          onClick={handleDownloadSummary}
-          className="px-4 py-2 bg-orange-500 text-white rounded"
-        >
-          Download Summary
-        </button>
-        <button
-          onClick={onStartNew}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Start New
-        </button>
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-gray-800">
+          Assessment Submitted Successfully
+        </h2>
+        <p className="mt-3 text-gray-600">
+          Thank you, <span className="font-semibold">{result.name}</span>.
+          <br />
+          Your vehicle damage assessment has been received.
+        </p>
+
+        {/* Info Card */}
+        <div className="mt-6 bg-gray-50 border rounded-lg p-4 text-left">
+          <p className="text-gray-700 text-sm">
+            <span className="font-medium">Service Type:</span>{" "}
+            {result.serviceType}
+          </p>
+          <p className="text-gray-700 text-sm">
+            <span className="font-medium">Total Damages:</span>{" "}
+            {result.totalDamageAreas}
+          </p>
+          <p className="text-gray-700 text-sm">
+            <span className="font-medium">Submitted At:</span>{" "}
+            {new Date(result.submittedAt).toLocaleString()}
+          </p>
+        </div>
+
+        {/* Action */}
+        <div className="mt-8">
+          <button
+            onClick={onStartNew}
+            className="px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg shadow transition cursor-pointer"
+          >
+            Start New Assessment
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -183,7 +183,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
         : "border-gray-300 hover:border-blue-400"
     }`}
   >
-    <span className="text-3xl">🚗</span>
+    <span className="text-3xl"><img src="/public/static/assets/img/car/frontRight/body.png" alt="" /></span>
     <p className="mt-2 text-sm font-medium">Car</p>
   </div>
 
@@ -195,7 +195,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
         : "border-gray-300 hover:border-blue-400"
     }`}
   >
-    <span className="text-3xl">🚐</span>
+    <span className="text-3xl"><img src="/public/static/assets/img/van/frontRight/body.png" alt="" /></span>
     <p className="mt-2 text-sm font-medium">Van</p>
   </div>
 </div>
