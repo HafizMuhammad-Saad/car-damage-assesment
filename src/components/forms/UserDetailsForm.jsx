@@ -20,11 +20,11 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
   } = useForm({
     resolver: yupResolver(userDetailsSchema),
     defaultValues: {
-      name: 'test',
-      email: 'test@example.com',
-      mobile: '+45 12 34 56 78',
-      address: 'abc123 street, city, country',
-      carNumberPlate: 'AB 12345',
+      name: '',
+      email: '',
+      mobile: '',
+      address: '',
+      carNumberPlate: '',
       serviceType: '',
       ...initialData
     },
@@ -189,7 +189,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     {...register('carNumberPlate')}
                     onChange={handleCarPlateChange}
                     error={errors.carNumberPlate?.message}
-                    placeholder="AB 12345"
+                    placeholder="AB12345"
                     className="uppercase font-mono text-lg tracking-wider"
                   />
                   {fetchingCarInfo && (

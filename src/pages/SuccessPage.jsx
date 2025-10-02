@@ -264,7 +264,7 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
 //   };
 
   return (
-   <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+   <div className="flex items-center justify-center py-8 bg-gray-100 px-4">
       <div className="bg-white shadow-lg rounded-lg max-w-lg w-full p-8 text-center">
         {/* Success Icon */}
         <div className="flex justify-center mb-6">

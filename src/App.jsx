@@ -183,7 +183,7 @@ formData.append("_autoresponse", "✅ Thanks for using our service! We will call
               const active = isStepActive(stepKey)
 
               return (
-                <li key={stepKey} className="flex-1 flex items-center">
+                <li key={stepKey} className="flex items-center">
                   <div className="flex items-center space-x-3">
                     {/* Circle */}
                     <div
