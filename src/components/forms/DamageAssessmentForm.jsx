@@ -127,29 +127,91 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   const handleFormSubmit = async (data) => {
     setLoading(true)
     
+    // try {
+    //   // Simulate API delay
+    //   await new Promise(resolve => setTimeout(resolve, 1500))
+      
+    //   const assessmentData = {
+    //           vehicleType,  // 👈 added here
+    //     // userDetails,
+    //     damages: data.damages,
+    //     images: images.map(img => ({
+    //       name: img.name,
+    //       url: img.url,
+    //       file: img.file
+    //     })),
+    //     totalDamageAreas: data.damages.length,
+    //     timestamp: new Date().toISOString()
+    //   }
+      
+    //   setLoading(false)
+    //   onSubmit(assessmentData)
+    // } catch (error) {
+    //   setLoading(false)
+    //   console.error('Error submitting assessment:', error)
+    // }
+
+    const emailTemplate = `
+    <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
+      <h2 style="background: #4CAF50; color: white; padding: 12px; text-align: center;">
+        🚗 Vehicle Damage Assessment Report
+      </h2>
+      <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
+      <p><strong>Total Damage Areas:</strong> ${data.damages.length}</p>
+      <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
+
+      <h3 style="color: #444; border-bottom: 1px solid #ddd;">Damages</h3>
+      <ul>
+        ${data.damages.map(dmg => `<li>${dmg.part} - ${dmg.severity}</li>`).join("")}
+      </ul>
+
+      <h3 style="color: #444; border-bottom: 1px solid #ddd;">Images</h3>
+      <div>
+        ${images.map(img => `
+          <div style="margin: 5px 0;">
+            <a href="${img.url}" target="_blank">
+              <img src="${img.url}" alt="Damage Image" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;" />
+            </a>
+          </div>
+        `).join("")}
+      </div>
+
+      <p style="margin-top: 20px; font-size: 13px; color: #777;">
+        Report generated automatically by Vehicle Assessment System.
+      </p>
+    </div>
+  `;
     try {
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      const assessmentData = {
-              vehicleType,  // 👈 added here
-        // userDetails,
-        damages: data.damages,
-        images: images.map(img => ({
-          name: img.name,
-          url: img.url,
-          file: img.file
-        })),
-        totalDamageAreas: data.damages.length,
-        timestamp: new Date().toISOString()
-      }
-      
-      setLoading(false)
-      onSubmit(assessmentData)
-    } catch (error) {
-      setLoading(false)
-      console.error('Error submitting assessment:', error)
+    // Prepare payload for Web3Forms
+    const payload = {
+      access_key: "57fdd52f-1b71-485f-a54f-722f8e5719a3", // 🔑 from web3forms.com
+      subject: "New Vehicle Damage Assessment", // Email subject
+      from_name: "Assessment Report", // optional
+    html: emailTemplate, // <-- beautiful HTML email
+    };
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    }).then((res) => res.json());
+
+    if (res.success) {
+      console.log("✅ Success:", res);
+      // Optionally reset form or show success UI
+      onSubmit(payload); // keep your callback if needed
+    } else {
+      console.error("❌ Web3Forms Error:", res);
     }
+
+  } catch (error) {
+    console.error("Error submitting assessment:", error);
+  } finally {
+    setLoading(false);
+  }
   }
 
    useEffect(() => {
