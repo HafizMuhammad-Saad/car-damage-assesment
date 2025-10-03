@@ -98,7 +98,7 @@ function App() {
 formData.append("_autoresponse", "✅ Thanks for using our service! We will call you shortly.");
 
 
-     const response = await fetch("https://formsubmit.co/f535833870e1931eef60a84b7cd0e244", {
+     const response = await fetch("https://formsubmit.co/6b3d12997fe2a72bd7f1ef8139d24f44", {
       method: "POST",
       body: formData,
     });
