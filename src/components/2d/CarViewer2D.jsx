@@ -339,7 +339,7 @@ const CarViewer2D = ({
       {/* Selected Parts Summary */}
       {(selectedParts.size > 0 || selectedAreas.length > 0) && (
         <div className="p-4 bg-blue-50 border-t">
-          <h4 className="text-sm font-medium text-white mb-2">
+          <h4 className="text-sm font-medium text-gray-800 mb-2">
             Selected Damaged Areas ({selectedParts.size || selectedAreas.length})
           </h4>
           <div className="flex flex-wrap gap-2">

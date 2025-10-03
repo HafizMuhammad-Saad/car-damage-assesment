@@ -164,7 +164,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   // }
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-6 mt-5">
+    <div className="w-full max-w-6xl mx-auto space-y-6 my-5">
       <Card>
         <CardHeader>
           <CardTitle>Step 2: Damage Assessment</CardTitle>
