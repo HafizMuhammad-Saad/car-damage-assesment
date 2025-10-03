@@ -9,7 +9,7 @@ const VAN_PARTS = {
     { id: 'mirrorLeft', name: 'Left Mirror', file: 'mirrorLeft.png', zIndex: 35, x: 47, y: 37, width: 5.5, height: 6 },
     { id: 'mudguardLeft', name: 'Left Mudguard', file: 'mudguardLeft.png', zIndex: 22, x: 69.5, y: 20, width: 11, height: 33 },
     { id: 'fenderLeft', name: 'Left Fender', file: 'fenderLeft.png', zIndex: 21, x: 37, y: 42, width: 10, height: 23 },
-    { id: 'roofEdgeFront', name: 'Front Roof Edge 2', file: 'roofEdgeFront.png', zIndex: 34, x: 43, y: 21, width: 15, height: 21 },
+    { id: 'roofEdgeFront', name: 'Front Roof Edge 2', file: 'roofEdgeFront.png', zIndex: 34, x: 43, y: 22, width: 15, height: 20 },
     { id: 'frontBumper', name: 'Front Bumper', file: 'bumperFront.png', zIndex: 30, x: 19, y: 56, width: 21, height: 22 },
     { id: 'frontEdgeRear', name: 'Front Edge Rear', file: 'frontEdgeRear.png', zIndex: 18, x: 57, y: 17, width: 15, height: 4 },
     { id: 'rearBumper', name: 'Rear Bumper', file: 'bumperRear.png', zIndex: 30, x: 77, y: 46, width: 4, height: 14 },
@@ -45,7 +45,7 @@ const VAN_PARTS = {
   { id: 'bonnet', name: 'Bonnet', file: 'bonnet.png', zIndex: 20, x: 56, y: 37, width: 24, height: 19 },
   { id: 'hem', name: 'Hem', file: 'hem.png', zIndex: 35, x: 27, y: 39, width: 24, height: 27 },
   { id: 'windowRearRight', name: 'Rear Right Window', file: 'windowRearRight.png', zIndex: 35, x: 22, y: 20, width: 10, height: 17 },
-  { id: 'lightRearRight', name: 'Rear Right Light', file: 'lightRearRight.png', zIndex: 35, x: 22.5, y: 29, width: 1.5, height: 7 },
+  { id: 'lightRearRight', name: 'Rear Right Light', file: 'lightRearRight.png', zIndex: 35, x: 19.5, y: 40, width: 1, height: 7 },
   { id: 'lightFrontRight', name: 'Front Right Light', file: 'lightFrontRight.png', zIndex: 35, x: 61, y: 53, width: 11, height: 10 },
   { id: 'windowFrontRight', name: 'Front Right Window', file: 'windowFrontRight.png', zIndex: 20, x: 42.5, y: 23, width: 13, height: 22 },
   { id: 'windowFront', name: 'Front Window', file: 'windowFront.png', zIndex: 30, x: 50, y: 21, width: 23, height: 24 },
@@ -72,7 +72,7 @@ rearLeft: [
 
   // Windows
   { id: 'windowFrontLeft', name: 'Front Left Window', file: 'windowFrontLeft.png', zIndex: 20, x: 25, y: 22, width: 10, height: 16 },
-  { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 35, x: 47, y: 22, width: 12, height: 19 },
+  { id: 'windowRearLeft', name: 'Rear Left Window', file: 'windowRearLeft.png', zIndex: 40, x: 47, y: 22, width: 12, height: 19 },
   { id: 'windowRear', name: 'Rear Window', file: 'windowRear.png', zIndex: 35, x: 63.5, y: 22, width: 15, height: 21 },
   { id: 'middleWindow', name: 'Middle Window', file: 'middleWindow.png', zIndex: 35, x: 35, y: 22, width: 13, height: 17 },
 

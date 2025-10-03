@@ -264,7 +264,7 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
 //   };
 
   return (
-   <div className="flex items-center justify-center py-8 bg-gray-100 px-4">
+   <div className="flex items-center justify-center py-8 px-4">
       <div className="bg-white shadow-lg rounded-lg max-w-lg w-full p-8 text-center">
         {/* Success Icon */}
         <div className="flex justify-center mb-6">
@@ -315,7 +315,7 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
         <div className="mt-8">
           <button
             onClick={onStartNew}
-            className="px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg shadow transition cursor-pointer"
+            className="px-6 py-2 bg-[#fb5c14] hover:bg-orange-700 text-white rounded-lg shadow transition cursor-pointer"
           >
             Start New Assessment
           </button>
