@@ -179,8 +179,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
     onClick={() => setVehicleType("car")}
     className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${
       vehicleType === "car"
-        ? "border-blue-600 bg-blue-50"
-        : "border-gray-300 hover:border-blue-400"
+        ? "border-[#fb5c14] bg-blue-50"
+        : "border-gray-300 hover:border-[#fb5c14]"
     }`}
   >
     <span className="text-3xl"><img src="/static/assets/img/car/frontRight/body.png" alt="" /></span>
@@ -191,8 +191,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
     onClick={() => setVehicleType("van")}
     className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${
       vehicleType === "van"
-        ? "border-blue-600 bg-blue-50"
-        : "border-gray-300 hover:border-blue-400"
+        ? "border-[#fb5c14] bg-blue-50"
+        : "border-gray-300 hover:border-[#fb5c14]"
     }`}
   >
     <span className="text-3xl"><img src="/static/assets/img/van/frontRight/body.png" alt="" /></span>
@@ -291,7 +291,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
 
       {/* Navigation Buttons */}
       <Card>
-        <CardContent className="pt-6">
+        <CardContent className="py-6">
           <div className="flex justify-between">
             <Button
               type="button"

@@ -240,7 +240,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <div className="p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-orange-500 
-    peer-checked:bg-orange-500 
+    peer-checked:bg-orange-400 
     peer-checked:text-white
     hover:bg-orange-500 hover:text-white 
     hover:border-orange-500
@@ -284,7 +284,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <div className="p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-orange-500 
-    peer-checked:bg-orange-500 
+    peer-checked:bg-orange-400 
     peer-checked:text-white
     hover:bg-orange-500 hover:text-white 
     hover:border-orange-500

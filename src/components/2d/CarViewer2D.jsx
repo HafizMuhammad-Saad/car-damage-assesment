@@ -191,7 +191,7 @@ const CarViewer2D = ({
           </div>
           <button
             onClick={rotateCar}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+            className="px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#f85408] transition-colors text-sm font-medium"
           >
             Rotate Car
           </button>
@@ -326,7 +326,7 @@ const CarViewer2D = ({
         className={cn(
           'px-3 py-1 rounded-full text-xs font-medium transition-colors',
           currentView === view.id
-            ? 'bg-blue-600 text-white'
+            ? 'bg-[#fb5c14] text-white'
             : 'bg-white text-gray-700 hover:bg-gray-100'
         )}
       >
@@ -339,7 +339,7 @@ const CarViewer2D = ({
       {/* Selected Parts Summary */}
       {(selectedParts.size > 0 || selectedAreas.length > 0) && (
         <div className="p-4 bg-blue-50 border-t">
-          <h4 className="text-sm font-medium text-blue-900 mb-2">
+          <h4 className="text-sm font-medium text-white mb-2">
             Selected Damaged Areas ({selectedParts.size || selectedAreas.length})
           </h4>
           <div className="flex flex-wrap gap-2">

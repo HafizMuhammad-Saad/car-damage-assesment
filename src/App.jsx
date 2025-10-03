@@ -171,9 +171,10 @@ formData.append("_autoresponse", "✅ Thanks for using our service! We will call
   {/* Progress Steps */}
   {currentStep !== STEPS.SUCCESS && (
     <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm flex justify-around">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 overflow-x-auto">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <nav aria-label="Progress">
-          <ol className="flex items-center justify-between">
+          <ol className="  flex flex-col space-y-6 sm:flex-row sm:items-center sm:justify-between sm:space-y-0
+          ">
             {Object.entries({
               [STEPS.USER_DETAILS]: "User Details",
               [STEPS.DAMAGE_ASSESSMENT]: "Assessment",
@@ -183,7 +184,7 @@ formData.append("_autoresponse", "✅ Thanks for using our service! We will call
               const active = isStepActive(stepKey)
 
               return (
-                <li key={stepKey} className="flex items-center">
+                <li key={stepKey} className="flex items-center sm:flex-1">
                   <div className="flex items-center space-x-3">
                     {/* Circle */}
                     <div
@@ -207,7 +208,7 @@ formData.append("_autoresponse", "✅ Thanks for using our service! We will call
                     {/* Label */}
                     <span
                       className={`
-                        text-sm font-medium
+                        text-sm font-medium truncate max-w-[90px] sm:max-w-none
                         ${
                           active
                             ? "text-orange-600"
@@ -223,7 +224,7 @@ formData.append("_autoresponse", "✅ Thanks for using our service! We will call
 
                   {/* Connector */}
                   {index < 2 && (
-                    <div className="flex-1 h-0.5 mx-4 bg-gray-200" />
+                    <div className="hidden sm:block flex-1 h-0.5 mx-4 bg-gray-200" />
                   )}
                 </li>
               )
@@ -264,8 +265,8 @@ formData.append("_autoresponse", "✅ Thanks for using our service! We will call
 
   {/* Footer */}
   <footer className="bg-white border-t">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-gray-500">
-      © 2025 quick repair vehicle damage assessment
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center font-bold text-sm text-gray-500">
+      © 2025 Quick Repair Vehicle Damage Assessment
     </div>
   </footer>
 </div>
