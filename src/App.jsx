@@ -107,7 +107,7 @@ function App() {
       formData.append("_autoresponse", "✅ Thanks for using our service! We will call you shortly.");
 
 
-      const response = await fetch("http://localhost:3000/api/sendEmail", {
+      const response = await fetch("/api/sendEmail", {
         method: "POST",
         body: formData,
       });
