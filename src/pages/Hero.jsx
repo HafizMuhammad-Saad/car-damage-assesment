@@ -27,16 +27,15 @@ function Hero() {
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-              <span className="block">Quick Repair</span>
+              <span className="block">Hurtig reparation</span>
               <span className="block text-orange-500">
-                Damage Assessment
+                Skadesvurdering
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Get accurate, professional vehicle damage evaluations with our advanced assessment system. 
-              Fast, reliable, and trusted by insurance professionals.
+              Identificér nemt din bil og dens skader – indtast blot din nummerplade, bekræft din bils oplysninger, og vis os, hvor skaden er.
             </p>
 
             {/* CTA Buttons */}

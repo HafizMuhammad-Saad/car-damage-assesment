@@ -119,9 +119,9 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
-                <CardTitle className=" text-orange-900">Personal & Vehicle Details</CardTitle>
+                <CardTitle className=" text-orange-900">Personlige oplysninger og køretøjsoplysninger</CardTitle>
                 <CardDescription className="">
-                  Please provide your contact information and vehicle details to get started with your car damage assessment.
+                  Angiv venligst dine kontaktoplysninger og køretøjsoplysninger for at komme i gang med din bilskadevurdering.
                 </CardDescription>
               </div>
             </div>
@@ -133,7 +133,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <User className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Personal Information</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Personlige oplysninger</h3>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -179,7 +179,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <Car className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Vehicle Information</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Køretøjsoplysninger</h3>
                 </div>
 
                 <div className="relative max-w-md">
@@ -226,7 +226,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <Shield className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Service Type</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Servicetype</h3>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -240,32 +240,31 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <div className="p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-orange-500 
-    peer-checked:bg-orange-400 
-    peer-checked:text-white
-    hover:bg-orange-500 hover:text-white 
-    hover:border-orange-500
+    peer-checked:bg-orange-50 
+    peer-checked:text-orange-700
+    hover:bg-orange-100 hover:text-orange-700 
+    hover:border-orange-300
     group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
-                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-500 relative flex items-center justify-center">
+                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-50 relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
                             <Shield className="w-5 h-5 transition-colors duration-300 
-            group-hover:text-white 
+            group-hover:text-orange-700
             text-orange-600 
             peer-checked:text-white" />
-                            <h4 className="text-lg font-semibold ">Insurance Claim</h4>
+                            <h4 className="text-lg font-semibold ">Forsikringskrav</h4>
                           </div>
                           <p className=" leading-relaxed ">
-                            Process your claim through your insurance company. We'll handle all the paperwork and coordination.
-                          </p>
+Behandl din skadesanmeldelse gennem dit forsikringsselskab. Vi håndterer alt papirarbejdet og koordineringen.                          </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700 ">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
             text-green-600
-            group-hover:text-white
+            group-hover:text-green-700
             peer-checked:text-white" />
                             <span>Direct billing available</span>
                           </div>
@@ -284,14 +283,14 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <div className="p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-orange-500 
-    peer-checked:bg-orange-400 
-    peer-checked:text-white
-    hover:bg-orange-500 hover:text-white 
+    peer-checked:bg-orange-50 
+    peer-checked:text-orange-700
+    hover:bg-orange-100 hover:text-orange-700
     hover:border-orange-500
     group-hover:shadow-md">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
-                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-500 relative flex items-center justify-center">
+                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-50 relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
                         </div>
@@ -299,19 +298,18 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                           <div className="flex items-center space-x-2 mb-2">
                             <CreditCard className="w-5 h-5 transition-colors duration-300 
             text-orange-600 
-            group-hover:text-white 
+            group-hover:text-orange-700 
             peer-checked:text-white" />
-                            <h4 className="text-lg font-semibold ">Self-Paid Service</h4>
+                            <h4 className="text-lg font-semibold ">Selvbetalt service</h4>
                           </div>
                           <p className="leading-relaxed ">
-                            Pay for repairs directly and get faster service with flexible payment options.
-                          </p>
+Betal for reparationer direkte og få hurtigere service med fleksible betalingsmuligheder.                          </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
             text-green-600
-            group-hover:text-white
+            group-hover:text-green-700
             peer-checked:text-white" />
-                            <span>Priority scheduling</span>
+                            <span>Prioriteret planlægning</span>
                           </div>
                         </div>
                       </div>
@@ -338,7 +336,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   size="lg"
                   className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"
                 >
-                  Continue to Next Step
+                  Fortsæt til næste trin
                 </Button>
               </div>
             </form>

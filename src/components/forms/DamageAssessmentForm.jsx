@@ -10,11 +10,11 @@ import { X, AlertCircle } from 'lucide-react'
 import CarViewer2D from '../2d/CarViewer2D'
 import VanViewer2D from '../2d/VanViewer2D'
 
-const SEVERITY_OPTIONS = [
-  { value: 'light', label: 'Light', description: 'Minor scratches or small dents', color: 'bg-yellow-100 text-yellow-800' },
-  { value: 'moderate', label: 'Moderate', description: 'Noticeable damage, needs repair', color: 'bg-orange-100 text-orange-800' },
-  { value: 'severe', label: 'Severe', description: 'Major damage, significant repair needed', color: 'bg-red-100 text-red-800' }
-]
+// const SEVERITY_OPTIONS = [
+//   { value: 'light', label: 'Light', description: 'Minor scratches or small dents', color: 'bg-yellow-100 text-yellow-800' },
+//   { value: 'moderate', label: 'Moderate', description: 'Noticeable damage, needs repair', color: 'bg-orange-100 text-orange-800' },
+//   { value: 'severe', label: 'Severe', description: 'Major damage, significant repair needed', color: 'bg-red-100 text-red-800' }
+// ]
 
 const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   const [loading, setLoading] = useState(false)
@@ -26,8 +26,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   // const handleVehicleTypeChange = (e) => {
   //   setVehicleType(e.target.value);
   // };
-  
- 
+
+
   const {
     /*register,*/
     handleSubmit,
@@ -44,8 +44,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
     },
     mode: 'onChange'
   })
-   // Keep selectedAreas synced if someone modifies fields from UI
- 
+  // Keep selectedAreas synced if someone modifies fields from UI
+
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -67,12 +67,12 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
 
   // const handleAreaSelect = (areaId, areaLabel) => {
   //   const existingIndex = selectedAreas.indexOf(areaId)
-    
+
   //   if (existingIndex > -1) {
   //     // Remove area if already selected
   //     const newSelectedAreas = selectedAreas.filter(id => id !== areaId)
   //     setSelectedAreas(newSelectedAreas)
-      
+
   //     // Remove from form
   //     const damageIndex = fields.findIndex(field => field.area === areaId)
   //     if (damageIndex > -1) {
@@ -81,7 +81,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   //   } else {
   //     // Add new area
   //     setSelectedAreas([...selectedAreas, areaId])
-      
+
   //     // Add to form
   //     append({
   //       id: Date.now().toString(),
@@ -98,186 +98,125 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
   //   setSelectedAreas(prev => prev.filter(id => id !== areaId))
   // }
 
- useEffect(() => {
+  useEffect(() => {
     setSelectedAreas(fields.map(f => f.area));
   }, [fields]);
- const handleAreaSelect = (areaId, areaLabel) => {
-  const existingIndex = fields.findIndex(f => f.area === areaId);
+  const handleAreaSelect = (areaId, areaLabel) => {
+    const existingIndex = fields.findIndex(f => f.area === areaId);
 
-  if (existingIndex > -1) {
-    // already selected -> remove from form and UI highlights
-    remove(existingIndex);
-    setSelectedAreas(prev => prev.filter(id => id !== areaId));
-  } else {
-    // not selected -> add to form and highlights
-    append({
-      id: Date.now().toString(),
-      area: areaId,
-      areaLabel,
-      severity: 'moderate',
-      comment: ''
-    });
-    setSelectedAreas(prev => [...prev, areaId]);
-  }
-};
+    if (existingIndex > -1) {
+      // already selected -> remove from form and UI highlights
+      remove(existingIndex);
+      setSelectedAreas(prev => prev.filter(id => id !== areaId));
+    } else {
+      // not selected -> add to form and highlights
+      append({
+        id: Date.now().toString(),
+        area: areaId,
+        areaLabel,
+        severity: 'moderate',
+        comment: ''
+      });
+      setSelectedAreas(prev => [...prev, areaId]);
+    }
+  };
   const handleImagesChange = (newImages) => {
     setImages(newImages)
   }
 
   const handleFormSubmit = async (data) => {
     setLoading(true)
-    
-    // try {
-    //   // Simulate API delay
-    //   await new Promise(resolve => setTimeout(resolve, 1500))
-      
-    //   const assessmentData = {
-    //           vehicleType,  // 👈 added here
-    //     // userDetails,
-    //     damages: data.damages,
-    //     images: images.map(img => ({
-    //       name: img.name,
-    //       url: img.url,
-    //       file: img.file
-    //     })),
-    //     totalDamageAreas: data.damages.length,
-    //     timestamp: new Date().toISOString()
-    //   }
-      
-    //   setLoading(false)
-    //   onSubmit(assessmentData)
-    // } catch (error) {
-    //   setLoading(false)
-    //   console.error('Error submitting assessment:', error)
-    // }
 
-    const emailTemplate = `
-    <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
-      <h2 style="background: #4CAF50; color: white; padding: 12px; text-align: center;">
-        🚗 Vehicle Damage Assessment Report
-      </h2>
-      <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
-      <p><strong>Total Damage Areas:</strong> ${data.damages.length}</p>
-      <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
-
-      <h3 style="color: #444; border-bottom: 1px solid #ddd;">Damages</h3>
-      <ul>
-        ${data.damages.map(dmg => `<li>${dmg.part} - ${dmg.severity}</li>`).join("")}
-      </ul>
-
-      <h3 style="color: #444; border-bottom: 1px solid #ddd;">Images</h3>
-      <div>
-        ${images.map(img => `
-          <div style="margin: 5px 0;">
-            <a href="${img.url}" target="_blank">
-              <img src="${img.url}" alt="Damage Image" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;" />
-            </a>
-          </div>
-        `).join("")}
-      </div>
-
-      <p style="margin-top: 20px; font-size: 13px; color: #777;">
-        Report generated automatically by Vehicle Assessment System.
-      </p>
-    </div>
-  `;
     try {
-    // Prepare payload for Web3Forms
-    const payload = {
-      access_key: "57fdd52f-1b71-485f-a54f-722f8e5719a3", // 🔑 from web3forms.com
-      subject: "New Vehicle Damage Assessment", // Email subject
-      from_name: "Assessment Report", // optional
-    html: emailTemplate, // <-- beautiful HTML email
-    };
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1500))
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(payload),
-    }).then((res) => res.json());
+      const assessmentData = {
+              vehicleType,  // 👈 added here
+        // userDetails,
+        damages: data.damages,
+        images: images.map(img => ({
+          name: img.name,
+          url: img.url,
+          file: img.file
+        })),
+        totalDamageAreas: data.damages.length,
+        timestamp: new Date().toISOString()
+      }
 
-    if (res.success) {
-      console.log("✅ Success:", res);
-      // Optionally reset form or show success UI
-      onSubmit(payload); // keep your callback if needed
-    } else {
-      console.error("❌ Web3Forms Error:", res);
+      setLoading(false)
+      onSubmit(assessmentData)
+    } catch (error) {
+      setLoading(false)
+      console.error('Error submitting assessment:', error)
     }
 
-  } catch (error) {
-    console.error("Error submitting assessment:", error);
-  } finally {
-    setLoading(false);
-  }
+    
   }
 
-   useEffect(() => {
-  // reset when user switches vehicle
-  setSelectedAreas([]);
-  setValue("damages", []); 
-}, [vehicleType, setValue]);
+  useEffect(() => {
+    // reset when user switches vehicle
+    setSelectedAreas([]);
+    setValue("damages", []);
+  }, [vehicleType, setValue]);
 
 
   // const getDamageByArea = (areaId) => {
   //   return fields.find(damage => damage.area === areaId)
   // }
 
+
   return (
     <div className="w-full max-w-6xl mx-auto space-y-6 my-5">
       <Card>
         <CardHeader>
-          <CardTitle>Step 2: Damage Assessment</CardTitle>
+          <CardTitle>Trin 2: Skadesvurdering</CardTitle>
           <CardDescription>
-            Select damaged areas on the 3D model, specify severity, and upload photos of the damage.
+            Vælg beskadigede områder på 3D-modellen, angiv alvorligheden, og upload billeder af skaden.
           </CardDescription>
         </CardHeader>
       </Card>
- {/* Vehicle Selector */}
-    <div className="flex gap-6">
-  <div
-    onClick={() => setVehicleType("car")}
-    className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${
-      vehicleType === "car"
-        ? "border-[#fb5c14] bg-blue-50"
-        : "border-gray-300 hover:border-[#fb5c14]"
-    }`}
-  >
-    <span className="text-3xl"><img src="/static/assets/img/car/frontRight/body.png" alt="" /></span>
-    <p className="mt-2 text-sm font-medium">Car</p>
-  </div>
+      {/* Vehicle Selector */}
+      <div className="flex gap-6">
+        <div
+          onClick={() => setVehicleType("car")}
+          className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${vehicleType === "car"
+              ? "border-[#fb5c14] bg-orange-50"
+              : "border-gray-300 hover:border-[#fb5c14]"
+            }`}
+        >
+          <img src="/static/assets/img/car/frontRight/body.png" alt="" className='h-12 object-contain' />
+          <p className="mt-2 text-sm font-medium">Bil</p>
+        </div>
 
-  <div
-    onClick={() => setVehicleType("van")}
-    className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${
-      vehicleType === "van"
-        ? "border-[#fb5c14] bg-blue-50"
-        : "border-gray-300 hover:border-[#fb5c14]"
-    }`}
-  >
-    <span className="text-3xl"><img src="/static/assets/img/van/frontRight/body.png" alt="" /></span>
-    <p className="mt-2 text-sm font-medium">Van</p>
-  </div>
-</div>
+        <div
+          onClick={() => setVehicleType("van")}
+          className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${vehicleType === "van"
+              ? "border-[#fb5c14] bg-orange-50"
+              : "border-gray-300 hover:border-[#fb5c14]"
+            }`}
+        >
+          <img src="/static/assets/img/van/frontRight/body.png" alt="" className='h-12 object-contain' />
+          <p className="mt-2 text-sm font-medium">Varevogn</p>
+        </div>
+      </div>
 
-    {/* Viewer Switch */}
-    {vehicleType === "car" ? (
-      <CarViewer2D
-        onAreaSelect={handleAreaSelect}
-        selectedAreas={selectedAreas}
-        height={500}
-      />
-    ) : (
-      <VanViewer2D
-        onAreaSelect={handleAreaSelect}
-        selectedAreas={selectedAreas}
-        height={500}
-      />
-    )}
+      {/* Viewer Switch */}
+      {vehicleType === "car" ? (
+        <CarViewer2D
+          onAreaSelect={handleAreaSelect}
+          selectedAreas={selectedAreas}
+          height={500}
+        />
+      ) : (
+        <VanViewer2D
+          onAreaSelect={handleAreaSelect}
+          selectedAreas={selectedAreas}
+          height={500}
+        />
+      )}
 
-{/* Selected damages panel */}
+      {/* Selected damages panel */}
       {/* <Card>
         <CardHeader>
           <CardTitle className="text-lg">Selected Damages</CardTitle>
@@ -337,9 +276,10 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
       {/* Image Upload Section */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Upload Damage Photos</CardTitle>
+          <CardTitle className="text-lg">Upload billeder af skader</CardTitle>
           <CardDescription>
-            Upload clear photos showing the damage to your vehicle. Multiple angles are recommended.
+Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbefales.
+
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -362,16 +302,17 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
               disabled={loading}
               className="cursor-pointer"
             >
-              Back to Details
+              Tilbage til detaljer
             </Button>
-            
+
             <Button
               onClick={handleSubmit(handleFormSubmit)}
               loading={loading}
               disabled={!isValid || fields.length === 0 || images.length === 0}
               className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"
             >
-              Submit Assessment
+                {loading ? "Sending..." : "Indsend vurdering"}
+
             </Button>
           </div>
         </CardContent>
@@ -394,7 +335,50 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
           </CardContent>
         </Card>
       )} */}
+
+        {loading && (
+  <div style={{
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    background: "rgba(255,255,255,0.7)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 9999,
+  }}>
+    <div style={{
+      background: "#fff",
+      padding: "30px 40px",
+      borderRadius: "8px",
+      boxShadow: "0 0 10px rgba(0,0,0,0.15)",
+      textAlign: "center",
+    }}>
+      <div className="spinner" style={{
+        border: "3px solid #eee",
+        borderTop: "3px solid #fb5c14",
+        borderRadius: "50%",
+        width: "30px",
+        height: "30px",
+        animation: "spin 1s linear infinite",
+        margin: "0 auto 10px",
+      }}></div>
+      <p style={{color: "#333"}}>Submitting your report...</p>
     </div>
+
+    <style>{`
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `}</style>
+  </div>
+)}
+    </div>
+
+
   )
 }
 

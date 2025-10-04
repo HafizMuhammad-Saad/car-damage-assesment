@@ -39,7 +39,9 @@ const Button = forwardRef(({
       {...props}
     >
       {loading && (
-        <svg className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
+        <svg
+            key="spinner"  // ✅ forces React to treat this as a stable node
+         className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
           <circle 
             className="opacity-25" 
             cx="12" 

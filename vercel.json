@@ -1,0 +1,25 @@
+{
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x",
+      "memory": 256
+    }
+  },
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/api/sendEmail",
+      "destination": "/api/sendEmail.js"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "https://v1.motorapi.dk/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/dist/index.html"
+    }
+  ]
+}

@@ -183,16 +183,17 @@ const VanViewer2D = ({
       <div className="p-4 border-b">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900">Van Damage Assessment</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Vurdering af varevognsskader</h3>
             <p className="text-sm text-gray-600 mt-1">
-              Click on van parts to mark damage. Rotate to view different angles.
+Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vinkler.
+
             </p>
           </div>
           <button
             onClick={rotateCar}
             className="px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#ec550e] transition-colors text-sm font-medium"
           >
-            Rotate Van
+            Roter varevogn
           </button>
         </div>
       </div>
@@ -339,7 +340,7 @@ const VanViewer2D = ({
       {(selectedParts.size > 0 || selectedAreas.length > 0) && (
         <div className="p-4 bg-blue-50 border-t">
           <h4 className="text-sm font-medium text-gray-800 mb-2">
-            Selected Damaged Areas ({selectedParts.size || selectedAreas.length})
+            Udvalgte beskadigede områder ({selectedParts.size || selectedAreas.length})
           </h4>
           <div className="flex flex-wrap gap-2">
             {Array.from(selectedParts).map((partId) => {
