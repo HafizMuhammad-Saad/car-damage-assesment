@@ -3,9 +3,9 @@ import { ArrowRight, ArrowDown, Star, Shield, Clock } from 'lucide-react';
 
 function Hero() {
   return (
-    <div className="">
-      {/* Hero Section */}
-      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
+<div className=""
+     >      {/* Hero Section */}
+      <section className="relative h-[75vh] flex items-center justify-center px-4 md:px-8 overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -82,12 +82,7 @@ function Hero() {
   </span>
           </div>
         </div>
-
-        {/* Floating Elements */}
-        {/* <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 right-20 w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-orange-600/20 rounded-full blur-xl animate-pulse delay-500"></div> */}
-      </section>
+   </section>
     </div>
   );
 }
