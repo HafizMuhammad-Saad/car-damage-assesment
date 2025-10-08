@@ -5,7 +5,7 @@ import { cn } from '../../utils/cn';
 const CAR_PARTS = {
   frontLeft: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 20, x: 40, y: 16, width: 26, height: 3 },
+  { id: 'roof', name: 'Tag', file: 'hood.png', zIndex: 20, x: 40, y: 16, width: 26, height: 3 },
   { id: 'mirrorLeft', name: 'Venstre sidespejl', file: 'mirrorLeft.png', zIndex: 30, x: 51, y: 29, width: 5, height: 6 },
   { id: 'mudguardLeft', name: 'Venstre bagskærm', file: 'mudguardLeft.png', zIndex: 22, x: 69, y: 20, width: 7.5, height: 23 },
   { id: 'fenderLeft', name: 'Venstre forskærm', file: 'fenderLeft.png', zIndex: 21, x: 35, y: 31, width: 15, height: 29 },
@@ -27,7 +27,7 @@ const CAR_PARTS = {
 ],
 frontRight: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 20, x: 36, y: 16, width: 22, height: 1 },
+  { id: 'roof', name: 'Tag', file: 'hood.png', zIndex: 20, x: 36, y: 16, width: 22, height: 1 },
   { id: 'mirrorRight', name: 'Højre sidespejl', file: 'mirrorRight.png', zIndex: 25, x: 44, y: 29, width: 5, height: 5 },
   { id: 'hemRight', name: 'Højre panelkant', file: 'hemRight.png', zIndex: 25, x: 28, y: 45, width: 24, height: 17 },
   { id: 'mudguardRight', name: 'Højre bagskærm', file: 'mudguardRight.png', zIndex: 22, x: 24, y: 20, width: 6, height: 22 },
@@ -75,7 +75,7 @@ frontRight: [
 rearLeft: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
   { id: 'roofEdgeFrontLeft', name: 'Venstre tagkant', file: 'roofEdgeLeft.png', zIndex: 11, x: 31, y: 16, width: 33, height: 14 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 10, x: 49, y: 15, width: 28, height: 5 },
+  { id: 'roof', name: 'Tag', file: 'hood.png', zIndex: 10, x: 49, y: 15, width: 28, height: 5 },
 
   // Bagkofanger
   { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 59.5, y: 38, width: 24, height: 24 },

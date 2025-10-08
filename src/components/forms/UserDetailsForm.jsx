@@ -86,31 +86,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
   return (
     <div className="bg-gradient-to-br from-orange-50 via-white to-amber-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Progress Indicator */}
-        {/* <div className="mb-8">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-semibold ">
-                1
-              </div>
-              <span className="ml-3 text-sm font-medium text-orange-600 ">Personal Details</span>
-            </div>
-            <div className="w-16 h-1 bg-gray-200 rounded"></div>
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold ">
-                2
-              </div>
-              <span className="ml-3 text-sm font-medium text-gray-500 ">Damage Assessment</span>
-            </div>
-            <div className="w-16 h-1 bg-gray-200 rounded"></div>
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-semibold ">
-                3
-              </div>
-              <span className="ml-3 text-sm font-medium text-gray-500 ">Review & Submit</span>
-            </div>
-          </div>
-        </div> */}
+       
 
         <Card className="w-full max-w-4xl mx-auto border-orange-200">
           <CardHeader>
@@ -119,8 +95,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
-                <CardTitle className=" text-orange-900">Personlige oplysninger og køretøjsoplysninger</CardTitle>
-                <CardDescription className="">
+                <CardTitle className="text-lg sm:text-xl text-orange-900 font-semibold">Personlige oplysninger og køretøjsoplysninger</CardTitle>
+                <CardDescription className="text-sm sm:text-base text-gray-600">
                   Angiv venligst dine kontaktoplysninger og køretøjsoplysninger for at komme i gang med din bilskadevurdering.
                 </CardDescription>
               </div>
@@ -328,13 +304,13 @@ Betal for reparationer direkte og få hurtigere service med fleksible betalingsm
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-end pt-8 border-t border-gray-100">
+              <div className="flex justify-center sm:justify-end pt-6 sm:pt-8 border-t border-gray-100">
                 <Button
                   type="submit"
                   loading={loading}
                   disabled={!isValid}
                   size="lg"
-                  className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"
+                  className="w-full sm:w-auto min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white transition"
                 >
                   Fortsæt til næste trin
                 </Button>

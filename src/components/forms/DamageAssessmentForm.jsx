@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useForm, useFieldArray, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { damageAssessmentSchema } from '../../utils/validation'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui/Card'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/Card'
 import Button from '../ui/Button'
 import Input from '../ui/Input'
 import ImageUpload from '../ui/ImageUpload'
@@ -292,31 +292,28 @@ Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbe
       </Card>
 
       {/* Navigation Buttons */}
-      <Card>
-        <CardContent className="py-6">
-          <div className="flex justify-between">
-            <Button
-              type="button"
-              variant="secondary"
-              onClick={onBack}
-              disabled={loading}
-              className="cursor-pointer"
-            >
-              Tilbage til detaljer
-            </Button>
+      <CardFooter className="flex justify-between items-center gap-4">
+  <Button
+    type="button"
+    variant="secondary"
+    onClick={onBack}
+    disabled={loading}
+    className="w-full sm:w-auto text-sm"
+  >
+    Tilbage til detaljer
+  </Button>
 
-            <Button
-              onClick={handleSubmit(handleFormSubmit)}
-              loading={loading}
-              disabled={!isValid || fields.length === 0 || images.length === 0}
-              className="min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"
-            >
-                {loading ? "Sending..." : "Indsend vurdering"}
+  <Button
+    onClick={handleSubmit(handleFormSubmit)}
+    loading={loading}
+    size={'sm'}
+    disabled={!isValid || fields.length === 0 || images.length === 0}
+    className="w-full sm:w-auto text-sm text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white"
+  >
+    {loading ? "Sender..." : "Indsend vurdering"}
+  </Button>
+</CardFooter>
 
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Summary */}
       {/* {(fields.length > 0 || images.length > 0) && (

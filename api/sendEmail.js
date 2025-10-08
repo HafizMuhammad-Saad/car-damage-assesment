@@ -147,7 +147,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
             from: `Vehicle Assessment <${process.env.TO_EMAIL}>`,
             to: process.env.EMAIL_FROM,                               // your inbox
             replyTo: fields.email,
-            subject: `New Vehicle Damage Assessmentfrom ${fields.name}`,
+            subject: `New Vehicle Damage Assessment from ${fields.name}`,
             html,
             attachments,
         });

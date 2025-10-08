@@ -5,7 +5,7 @@ import { cn } from '../../utils/cn';
 const VAN_PARTS = {
  frontLeft: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 36, x: 38, y: 18, width: 40, height: 6 },
+  { id: 'hood', name: 'Tag', file: 'hood.png', zIndex: 36, x: 38, y: 18, width: 40, height: 6 },
   { id: 'mirrorLeft', name: 'Venstre sidespejl', file: 'mirrorLeft.png', zIndex: 40, x: 47, y: 37, width: 5.5, height: 6 },
   { id: 'mudguardLeft', name: 'Venstre bagskærm', file: 'mudguardLeft.png', zIndex: 29, x: 69.5, y: 20, width: 11, height: 42 },
   { id: 'fenderLeft', name: 'Venstre forskærm', file: 'fenderLeft.png', zIndex: 21, x: 37, y: 42, width: 10, height: 23 },
@@ -31,7 +31,7 @@ const VAN_PARTS = {
 
 frontRight: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 20, x: 23, y: 16, width: 40, height: 9 },
+  { id: 'hood', name: 'Tag', file: 'hood.png', zIndex: 20, x: 23, y: 16, width: 40, height: 9 },
   { id: 'mirrorRight', name: 'Højre sidespejl', file: 'mirrorRight.png', zIndex: 35, x: 47, y: 37, width: 6.5, height: 7 },
   { id: 'mudguardRight', name: 'Højre bagskærm', file: 'mudguardRight.png', zIndex: 22, x: 19.5, y: 20, width: 11, height: 43 },
   { id: 'fenderRight', name: 'Højre forskærm', file: 'fenderRight.png', zIndex: 21, x: 53, y: 41, width: 10, height: 25 },
@@ -59,7 +59,7 @@ frontRight: [
 rearLeft: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
   { id: 'roofEdgeLeft', name: 'Venstre tagstolpe', file: 'roofEdgeLeft.png', zIndex: 11, x: 26, y: 20.5, width: 37.5, height: 12 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 10, x: 31, y: 19, width: 46, height: 4 },
+  { id: 'hood', name: 'Tag', file: 'hood.png', zIndex: 10, x: 31, y: 19, width: 46, height: 4 },
 
   // Bagkofanger
   { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 55.5, y: 60, width: 25, height: 17 },
@@ -98,7 +98,7 @@ rearRight: [
 
   // Tag
   { id: 'roofEdgeRight', name: 'Højre tagstolpe', file: 'roofEdgeRight.png', zIndex: 11, x: 36, y: 19.5, width: 39, height: 15 },
-  { id: 'hood', name: 'Motorhjelm', file: 'hood.png', zIndex: 10, x: 22, y: 19, width: 46, height: 4 },
+  { id: 'hood', name: 'Tag', file: 'hood.png', zIndex: 10, x: 22, y: 19, width: 46, height: 4 },
 
   // Bagkofanger
   { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 59, width: 26, height: 18 },
