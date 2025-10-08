@@ -138,7 +138,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <Input
-                    label="Full Name"
+                    label="Fulde navn"
                     required
                     {...register('name')}
                     error={errors.name?.message}
@@ -146,7 +146,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   />
 
                   <Input
-                    label="Email Address"
+                    label="E-mailadresse"
                     type="email"
                     required
                     {...register('email')}
@@ -157,7 +157,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <Input
-                    label="Mobile Number"
+                    label="Mobilnummer"
                     type="tel"
                     required
                     {...register('mobile')}
@@ -166,7 +166,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   />
 
                   <Input
-                    label="Address"
+                    label="Adresse"
                     required
                     {...register('address')}
                     error={errors.address?.message}
@@ -184,7 +184,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
                 <div className="relative max-w-md">
                   <Input
-                    label="Car Number Plate"
+                    label="Nummerplade"
                     required
                     {...register('carNumberPlate')}
                     onChange={handleCarPlateChange}
@@ -205,7 +205,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6">
                     <div className="flex items-center space-x-3 mb-4">
                       <CheckCircle className="w-6 h-6 text-green-600" />
-                      <h4 className="text-lg font-semibold text-green-800">Vehicle Information Found</h4>
+                      <h4 className="text-lg font-semibold text-green-800">Køretøjsoplysninger fundet</h4>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                       <div className="bg-white rounded-lg p-3">
