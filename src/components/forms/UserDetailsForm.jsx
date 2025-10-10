@@ -91,7 +91,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
         <Card className="w-full max-w-4xl mx-auto border-orange-200">
           <CardHeader>
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center shrink-0 justify-center">
                 <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>

@@ -42,10 +42,10 @@ const STEPS_CONFIG = [
   // We don't include PROCESSING or SUCCESS in the visual stepper configuration
 ];
 
-const totalSteps = STEPS_CONFIG.length;
 
 
 function ProgressStepper({ config, currentStep, appState }) {
+  const totalSteps = STEPS_CONFIG.length;
   // Hide the stepper during processing and on the success screen
   if (currentStep === STEPS.PROCESSING || currentStep === STEPS.SUCCESS) {
     return null;
@@ -54,7 +54,7 @@ function ProgressStepper({ config, currentStep, appState }) {
   return (
     <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <nav aria-label="Progress">
+        <nav aria-label="Progress" className='flex items-center justify-center'>
           <ol className="flex items-center px-2.5">
             {config.map((step, index) => {
               const completed = step.isCompleted(appState);

@@ -144,7 +144,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
         // ✅ Send email
         await transporter.sendMail({
-            from: `Vehicle Assessment <info@quickrepair.dk>`,
+            from: `Vehicle Assessment <${process.env.TO_EMAIL}>`,
             to: process.env.EMAIL_FROM,                               // your inbox
             replyTo: fields.email,
             subject: `New Vehicle Damage Assessment from ${fields.name}`,
@@ -172,6 +172,9 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
     }
 });
 
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server listening on port ${process.env.PORT || 3000}`);
+});
 // ✅ Export for serverless
 export default app;
 // export const handler = serverless(app);

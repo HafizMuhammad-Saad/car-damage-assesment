@@ -195,7 +195,7 @@ const VanViewer2D = ({
   return (
     <div className={cn('w-full border rounded-lg overflow-hidden', className)}>
       <div className="p-4 border-b">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-col md:flex-row gap-4">
           <div>
             <h3 className="text-lg font-semibold text-gray-900">Vurdering af varevognsskader</h3>
             <p className="text-sm text-gray-600 mt-1">

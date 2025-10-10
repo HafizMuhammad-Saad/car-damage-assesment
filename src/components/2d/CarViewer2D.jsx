@@ -189,7 +189,7 @@ const CarViewer2D = ({
   return (
     <div className={cn('w-full border rounded-lg overflow-hidden', className)}>
       <div className="p-4 bg-white border-b">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-col md:flex-row gap-4">
           <div>
             <h3 className="text-lg font-semibold text-gray-900">Vurdering af bilskader</h3>
             <p className="text-sm text-gray-600 mt-1">
@@ -198,12 +198,12 @@ const CarViewer2D = ({
           </div>
           <button
             onClick={rotateCar}
-            className="flex items-center gap-2 px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#f85408] transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#f85408] transition-colors font-thin md:text-sm text-[12px]"
           >
             Roter bil
 
  <FaSync
-    className={`w-3 h-3 transition-transform duration-500 ${
+    className={`w-4 h-4 shrink-0 transition-transform duration-500 ${
       rotating ? 'animate-spin' : ''
     }`}
   />
