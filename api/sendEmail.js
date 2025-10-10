@@ -3,7 +3,7 @@ import multer from "multer";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
-import serverless from "serverless-http";
+// import serverless from "serverless-http";
 
 dotenv.config();
 
@@ -171,7 +171,6 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 });
-
 
 // ✅ Export for serverless
 export default app;

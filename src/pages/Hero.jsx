@@ -5,7 +5,7 @@ function Hero() {
   return (
 <div className=""
      >      {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden">
+      <section className="relative md:min-h-[80vh] min-h-[50vh]  flex items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

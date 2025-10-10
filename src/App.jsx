@@ -2,9 +2,9 @@ import { useState } from 'react'
 import UserDetailsForm from './components/forms/UserDetailsForm'
 import DamageAssessmentForm from './components/forms/DamageAssessmentForm'
 import SuccessPage from './pages/SuccessPage'
-// eslint-disable-next-line no-unused-vars
-// import { submitAssessment, getVehicles } from './services/api'
-import { Car, FileText, CheckCircle2 } from 'lucide-react'
+import { Car, FileText, CheckCircle2,User, ClipboardList,Loader2 } from 'lucide-react'
+import clsx from "clsx"; // A utility for conditionally joining class names
+
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 
@@ -19,11 +19,92 @@ const STEPS = {
   SUCCESS: 'success'
 }
 
+const STEPS_CONFIG = [
+  {
+    key: STEPS.USER_DETAILS,
+    name: "Brugeroplysninger",
+    Icon: (props) => <FileText {...props} />,
+    isCompleted: (state) => !!state.userDetails,
+  },
+  {
+    key: STEPS.DAMAGE_ASSESSMENT,
+    name: "Vurdering",
+    Icon: (props) => <Car {...props} />,
+    // This step is only "complete" when the final result is in
+    isCompleted: (state) => !!state.assessmentResult,
+  },
+  // We don't include PROCESSING or SUCCESS in the visual stepper configuration
+];
+
+const totalSteps = STEPS_CONFIG.length;
+
+
+function ProgressStepper({ config, currentStep, appState }) {
+  // Hide the stepper during processing and on the success screen
+  if (currentStep === STEPS.PROCESSING || currentStep === STEPS.SUCCESS) {
+    return null;
+  }
+
+  return (
+    <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <nav aria-label="Progress">
+          <ol className="flex items-center px-2.5">
+            {config.map((step, index) => {
+              const completed = step.isCompleted(appState);
+              const active = currentStep === step.key;
+              const { Icon } = step;
+
+              return (
+                <li key={step.key} className="flex flex-1 items-center">
+                  <div className="flex flex-col items-center gap-2 md:flex-row md:gap-3">
+                    <div
+                      className={clsx(
+                        "flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all",
+                        {
+                          "bg-orange-500 border-orange-500 text-white": completed,
+                          "border-orange-500 text-orange-600": active,
+                          "border-gray-300 text-gray-400": !completed && !active,
+                        }
+                      )}
+                    >
+                      {completed ? (
+                        <CheckCircle2 className="h-5 w-5" />
+                      ) : (
+                        <Icon className="h-5 w-5" />
+                      )}
+                    </div>
+                    <span
+                      className={clsx("text-sm font-medium truncate", {
+                        "text-orange-600": active,
+                        "text-gray-900": completed,
+                        "text-gray-500": !completed && !active,
+                      })}
+                    >
+                      {step.name}
+                    </span>
+                  </div>
+
+                  {index < totalSteps - 1 && (
+                    <div className="flex-1 h-0.5 mx-4 bg-gray-200" />
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [currentStep, setCurrentStep] = useState(STEPS.USER_DETAILS)
   const [userDetails, setUserDetails] = useState(null)
   const [assessmentResult, setAssessmentResult] = useState(null)
   const [loading, setLoading] = useState(false)
+
+    const appState = { userDetails, assessmentResult };
 
   const handleUserDetailsNext = (data) => {
     setUserDetails(data)
@@ -113,7 +194,7 @@ function App() {
       });
 
       if (response.ok) {
-        toast.success("✅ Assessment submitted successfully!");
+        toast.success("Assessment submitted successfully!");
 
         setAssessmentResult(finalData);
         setCurrentStep(STEPS.SUCCESS);
@@ -147,35 +228,35 @@ function App() {
     setAssessmentResult(null)
   }
 
-  const getStepIcon = (step) => {
-    switch (step) {
-      case STEPS.USER_DETAILS:
-        return <FileText className="h-5 w-5" />
-      case STEPS.DAMAGE_ASSESSMENT:
-        return <Car className="h-5 w-5" />
-      case STEPS.SUCCESS:
-        return <CheckCircle2 className="h-5 w-5" />
-      default:
-        return null
-    }
-  }
+  // const getStepIcon = (step) => {
+  //   switch (step) {
+  //     case STEPS.USER_DETAILS:
+  //       return <FileText className="h-5 w-5" />
+  //     case STEPS.DAMAGE_ASSESSMENT:
+  //       return <Car className="h-5 w-5" />
+  //     case STEPS.SUCCESS:
+  //       return <CheckCircle2 className="h-5 w-5" />
+  //     default:
+  //       return null
+  //   }
+  // }
 
-  const isStepCompleted = (step) => {
-    switch (step) {
-      case STEPS.USER_DETAILS:
-        return userDetails !== null
-      case STEPS.DAMAGE_ASSESSMENT:
-        return assessmentResult !== null
-      case STEPS.SUCCESS:
-        return true
-      default:
-        return false
-    }
-  }
+  // const isStepCompleted = (step) => {
+  //   switch (step) {
+  //     case STEPS.USER_DETAILS:
+  //       return userDetails !== null
+  //     case STEPS.DAMAGE_ASSESSMENT:
+  //       return assessmentResult !== null
+  //     case STEPS.SUCCESS:
+  //       return true
+  //     default:
+  //       return false
+  //   }
+  // }
 
-  const isStepActive = (step) => {
-    return currentStep === step
-  }
+  // const isStepActive = (step) => {
+  //   return currentStep === step
+  // }
 
   return (
     <>
@@ -184,13 +265,13 @@ function App() {
         <Hero />
 
         {/* Progress Steps */}
-        {currentStep !== STEPS.SUCCESS && (
+        {/* {currentStep !== STEPS.SUCCESS && (
           <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm flex justify-around">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 overflow-x-auto">
               <nav aria-label="Progress">
-                <ol className="  flex flex-col space-y-6 sm:flex-row sm:items-center sm:justify-between sm:space-y-0
-          ">
-                  {Object.entries({
+<ol
+  className="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base"
+>                  {Object.entries({
                     [STEPS.USER_DETAILS]: "Brugeroplysninger",
                     [STEPS.DAMAGE_ASSESSMENT]: "Vurdering",
                     [STEPS.SUCCESS]: "Komplet",
@@ -199,12 +280,11 @@ function App() {
                     const active = isStepActive(stepKey)
 
                     return (
-                      <li key={stepKey} className="flex items-center sm:flex-1">
-                        <div className="flex items-center space-x-3">
-                          {/* Circle */}
+                      <li key={stepKey} className="flex md:w-full items-center">
+                        <div className="flex flex-col items-center md:items-center md:flex-row md:gap-3">
                           <div
                             className={`
-                        flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all
+                        flex h-10 w-10  items-center justify-center rounded-full border-2 transition-all
                         ${completed
                                 ? "bg-orange-500 border-orange-500 text-white"
                                 : active
@@ -219,10 +299,9 @@ function App() {
                               getStepIcon(stepKey)
                             )}
                           </div>
-                          {/* Label */}
                           <span
                             className={`
-                        text-sm font-medium truncate max-w-[90px] sm:max-w-none
+                        text-sm font-medium truncate
                         ${active
                                 ? "text-orange-600"
                                 : completed
@@ -235,9 +314,9 @@ function App() {
                           </span>
                         </div>
 
-                        {/* Connector */}
+                        // Connector 
                         {index < 2 && (
-                          <div className="hidden sm:block flex-1 h-0.5 mx-4 bg-gray-200" />
+                <div className="flex-1 h-0.5 mx-4 bg-gray-200" />
                         )}
                       </li>
                     )
@@ -246,7 +325,13 @@ function App() {
               </nav>
             </div>
           </div>
-        )}
+          
+        )} */}
+        <ProgressStepper
+          config={STEPS_CONFIG}
+          currentStep={currentStep}
+          appState={appState}
+        />
 
         {/* Main Content */}
         <main className="flex-1">
@@ -304,7 +389,7 @@ function App() {
         position="top-right"
         toastOptions={{
           style: { background: "#fff", color: "#333", border: "1px solid #fb5c14" },
-          success: { iconTheme: { primary: "#fb5c14", secondary: "#fff" } },
+          success: { iconTheme: { primary: "#008000", secondary: "#fff" } },
         }}
       />
 

@@ -1,5 +1,8 @@
  import { useState } from 'react';
 import { cn } from '../../utils/cn';
+import { RotateCw } from 'lucide-react';
+
+import {FaSync} from 'react-icons/fa';
 
 // Define car parts for each view with positioning coordinates
 const CAR_PARTS = {
@@ -161,10 +164,18 @@ const CarViewer2D = ({
     }
   };
 
+  const [rotating, setRotating] = useState(false);
+
   const rotateCar = () => {
+  setRotating(true); // start animation
+
+
     const currentIndex = VIEWS.findIndex(v => v.id === currentView);
     const nextIndex = (currentIndex + 1) % VIEWS.length;
     setCurrentView(VIEWS[nextIndex].id);
+
+      setTimeout(() => setRotating(false), 600); // 0.6s spin
+
   };
 
   const getImagePath = (view, partFile) => {
@@ -187,10 +198,16 @@ const CarViewer2D = ({
           </div>
           <button
             onClick={rotateCar}
-            className="px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#f85408] transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#f85408] transition-colors text-sm font-medium"
           >
             Roter bil
-          </button>
+
+ <FaSync
+    className={`w-3 h-3 transition-transform duration-500 ${
+      rotating ? 'animate-spin' : ''
+    }`}
+  />
+            </button>
         </div>
       </div>
 

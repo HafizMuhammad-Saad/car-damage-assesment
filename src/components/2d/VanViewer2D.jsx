@@ -1,5 +1,6 @@
  import { useState } from 'react';
 import { cn } from '../../utils/cn';
+import { FaSync } from 'react-icons/fa';
 
 // Define car parts for each view with positioning coordinates
 const VAN_PARTS = {
@@ -11,7 +12,7 @@ const VAN_PARTS = {
   { id: 'fenderLeft', name: 'Venstre forskærm', file: 'fenderLeft.png', zIndex: 21, x: 37, y: 42, width: 10, height: 23 },
   { id: 'roofEdgeLeft', name: 'Venstre tagstolpe', file: 'roofEdgeFront.png', zIndex: 28, x: 42, y: 18, width: 37, height: 27 },
   { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 19, y: 56, width: 21, height: 22 },
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 77, y: 46, width: 4, height: 14 },
+  { id: 'rearBumperLeft', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 77, y: 46, width: 4, height: 14 },
 
   { id: 'doorFrontLeft', name: 'Venstre fordør', file: 'doorFrontLeft.png', zIndex: 30, x: 46, y: 40, width: 14, height: 32 },
   { id: 'doorRearLeft', name: 'Venstre sidedør', file: 'doorRearLeft.png', zIndex: 30, x: 59, y: 37, width: 11, height: 30 },
@@ -38,7 +39,7 @@ frontRight: [
   { id: 'roofEdgeFrontLeft', name: 'Højre tagstolpe', file: 'roofEdgeFront.png', zIndex: 20, x: 22, y: 19, width: 35, height: 23 },
 
   { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 59, y: 54, width: 23, height: 27 },
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 45, width: 4, height: 16 },
+  { id: 'rearBumperRight', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 45, width: 4, height: 16 },
 
   { id: 'doorFrontRight', name: 'Højre fordør', file: 'doorFrontRight.png', zIndex: 30, x: 41, y: 39, width: 13, height: 33 },
   { id: 'doorRearRight', name: 'Højre sidedør', file: 'doorRearRight.png', zIndex: 30, x: 29.5, y: 36.5, width: 12, height: 31 },
@@ -169,10 +170,18 @@ const VanViewer2D = ({
     }
   };
 
+  const [rotating, setRotating] = useState(false);
+
   const rotateCar = () => {
+    setRotating(true); // start animation
+
     const currentIndex = VAN_VIEWS.findIndex(v => v.id === currentView);
     const nextIndex = (currentIndex + 1) % VAN_VIEWS.length;
     setCurrentView(VAN_VIEWS[nextIndex].id);
+
+    setTimeout(() => {
+      setRotating(false); // end animation after rotation
+    }, 600);
   };
 
   const getImagePath = (view, partFile) => {
@@ -196,9 +205,13 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
           </div>
           <button
             onClick={rotateCar}
-            className="px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#ec550e] transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-[#fb5c14] text-white rounded-md hover:bg-[#ec550e] transition-colors text-sm font-medium"
           >
             Roter varevogn
+            <FaSync
+    className={`w-3 h-3 transition-transform duration-500 ${
+      rotating ? 'animate-spin' : ''
+    }`} />
           </button>
         </div>
       </div>
