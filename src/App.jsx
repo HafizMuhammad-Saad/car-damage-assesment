@@ -33,6 +33,12 @@ const STEPS_CONFIG = [
     // This step is only "complete" when the final result is in
     isCompleted: (state) => !!state.assessmentResult,
   },
+  {
+    key: STEPS.SUCCESS,
+    name: "Komplet",
+    Icon: (props) => <CheckCircle2 {...props} />,
+    isCompleted: (state) => state.currentStep === STEPS.SUCCESS,
+  },
   // We don't include PROCESSING or SUCCESS in the visual stepper configuration
 ];
 
