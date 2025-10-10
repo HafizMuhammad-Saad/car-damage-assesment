@@ -144,7 +144,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
         // ✅ Send email
         await transporter.sendMail({
-            from: `Vehicle Assessment <${process.env.TO_EMAIL}>`,
+            from: `Vehicle Assessment <info@quickrepair.dk>`,
             to: process.env.EMAIL_FROM,                               // your inbox
             replyTo: fields.email,
             subject: `New Vehicle Damage Assessment from ${fields.name}`,
