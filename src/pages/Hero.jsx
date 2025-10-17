@@ -5,7 +5,7 @@ function Hero() {
   return (
 <div className=""
      >      {/* Hero Section */}
-      <section className="relative md:min-h-[80vh] min-h-[50vh]  flex items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden">
+      <section className="relative md:min-h-[50vh] min-h-[50vh]  flex items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -18,7 +18,7 @@ function Hero() {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 text-center">
-          <div className="space-y-8 sm:space-y-8">
+          <div className="space-y-8 sm:space-y-8 pt-16">
             {/* Badge */}
             {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium">
               <Star className="w-4 h-4 mr-2 text-yellow-400" />
@@ -26,7 +26,7 @@ function Hero() {
             </div> */}
 
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
               <span className="block">Hurtig reparation</span>
               <span className="block text-orange-500">
                 Skadesvurdering
@@ -76,7 +76,7 @@ function Hero() {
                 <p className="text-white/70">Professional-grade assessment by certified experts</p>
               </div>
             </div> */}<div className="flex justify-center">
-          <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 animate-bounce mt-6 text-white" />
+          <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 animate-bounce mt-6 mb-3 text-white" />
         </div>
           </div>
         </div>

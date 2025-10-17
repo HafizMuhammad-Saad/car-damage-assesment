@@ -3,7 +3,7 @@ import multer from "multer";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
-// import serverless from "serverless-http";
+import serverless from "serverless-http";
 
 dotenv.config();
 
@@ -154,7 +154,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
         // 2. Send thank-you email to user
         await transporter.sendMail({
-  from: `Køretøjsvurdering <${process.env.EMAIL_FROM}>`,
+  from: `Køretøjsvurdering <${process.TO_EMAIL}>`,
   to: fields.email,
   subject: "✅ Tak for din indsendelse af skadevurdering",
   html: `
@@ -172,9 +172,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server listening on port ${process.env.PORT || 3000}`);
-});
+
 // ✅ Export for serverless
 export default app;
 // export const handler = serverless(app);
