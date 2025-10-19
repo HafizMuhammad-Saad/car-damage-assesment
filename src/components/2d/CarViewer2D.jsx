@@ -208,6 +208,10 @@ const CarViewer2D = ({
     }`}
   />
             </button>
+
+            <p className="mt-2 text-xs text-gray-600 bg-amber-100 rounded-lg px-2 py-1 z-10 text-center flex sm:hidden">
+   🔎 Zoom ind for at markere skader på alle dele
+</p>
         </div>
       </div>
 
