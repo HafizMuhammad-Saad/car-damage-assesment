@@ -203,17 +203,22 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
 
       {/* Viewer Switch */}
       {vehicleType === "car" ? (
+        <>
         <CarViewer2D
           onAreaSelect={handleAreaSelect}
           selectedAreas={selectedAreas}
           height={500}
-        />
+          />
+          </>
       ) : (
+        <>
         <VanViewer2D
           onAreaSelect={handleAreaSelect}
           selectedAreas={selectedAreas}
           height={500}
-        />
+          />
+     
+          </>
       )}
 
       {/* Selected damages panel */}

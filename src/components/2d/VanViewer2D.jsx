@@ -213,72 +213,14 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
       rotating ? 'animate-spin' : ''
     }`} />
           </button>
+ <p className="mt-2 text-xs text-gray-600 bg-amber-100 rounded-lg px-2 py-1 z-10 text-center flex sm:hidden">
+   🔎 Zoom ind for at markere skader på alle dele
+</p>
+          
         </div>
       </div>
 
-      {/* <div className="relative bg-gray-100" style={{ height: `${height}px` }}>
-        <div className="relative w-full h-full">
-          {VIEWS.map((view) => (
-            <div
-              key={view.id}
-              className={cn(
-                'absolute inset-0 flex items-center justify-center transition-opacity duration-300',
-                currentView === view.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              )}
-            >
-              <div className="relative w-full h-64">
-                {CAR_PARTS[view.id].map((part) => (
-                  <img
-                    key={part.id}
-                    src={getImagePath(view.id, part.file)}
-                    alt={part.name}
-                    className={cn(
-                      'absolute cursor-pointer transition-all duration-200 hover:brightness-110',
-                      isPartSelected(part.id) && 'opacity-10 brightness-55'
-                    )}
-                    style={{
-                      zIndex: part.zIndex,
-                      top: `${part.y}%`,
-                      left: `${part.x}%`,
-                      width: `${part.width}%`,
-                      height: `${part.height}%`,
-                    }}
-                    data-area={part.id}
-                    onClick={() => handlePartClick(part.id, part.name)}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="absolute top-4 left-4 bg-white bg-opacity-0 rounded-md px-3 py-2">
-          <p className="text-sm font-medium text-gray-700">
-            {VIEWS.find(v => v.id === currentView)?.label}
-          </p>
-        </div>
-
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {VIEWS.map((view) => (
-            <button
-              key={view.id}
-              onClick={() => setCurrentView(view.id)}
-              className={cn(
-                'px-3 py-1 rounded-full text-xs font-medium transition-colors',
-                currentView === view.id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
-              )}
-            >
-              {view.name}
-            </button>
-          ))}
-        </div>
-      </div> */}
-
+      
       <div className="relative" style={{ height: `${height}px` }}>
   {/* Car Views Container */}
   <div className="relative w-full h-full">
@@ -332,13 +274,18 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
         </div>
       ) : null
     )}
+
+     
   </div>
 
   {/* Current View Indicator */}
   <div className="absolute top-4 left-4 bg-gray-200 z-10 bg-opacity-0 rounded-md px-3 py-2">
+    
     <p className="text-sm font-medium text-gray-700">
       {VAN_VIEWS.find((v) => v.id === currentView)?.label}
     </p>
+
+   
   </div>
 
   {/* View Navigation */}
