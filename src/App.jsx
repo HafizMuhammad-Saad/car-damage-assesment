@@ -386,7 +386,7 @@ function App() {
         {/* Footer */}
         <footer className="bg-white border-t">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center font-bold text-sm text-gray-500">
-            © 2025 Quick Repair Vehicle Damage Assessment
+            © 2025 Quick Repair Bilskade Assessment
           </div>
         </footer>
       </div>
