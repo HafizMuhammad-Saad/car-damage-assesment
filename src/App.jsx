@@ -2,7 +2,7 @@ import { useState } from 'react'
 import UserDetailsForm from './components/forms/UserDetailsForm'
 import DamageAssessmentForm from './components/forms/DamageAssessmentForm'
 import SuccessPage from './pages/SuccessPage'
-import { Car, FileText, CheckCircle2,User, ClipboardList,Loader2 } from 'lucide-react'
+import { Car, FileText, CheckCircle2, User, ClipboardList, Loader2 } from 'lucide-react'
 import clsx from "clsx"; // A utility for conditionally joining class names
 
 import { Toaster } from "react-hot-toast";
@@ -110,7 +110,7 @@ function App() {
   const [assessmentResult, setAssessmentResult] = useState(null)
   const [loading, setLoading] = useState(false)
 
-    const appState = { userDetails, assessmentResult };
+  const appState = { userDetails, assessmentResult };
 
   const handleUserDetailsNext = (data) => {
     setUserDetails(data)
@@ -200,7 +200,7 @@ function App() {
       });
 
       if (response.ok) {
-        toast.success("Assessment submitted successfully!");
+        toast.success("Rapportet er blevet indsendt med succes!");
 
         setAssessmentResult(finalData);
         setCurrentStep(STEPS.SUCCESS);
@@ -366,11 +366,11 @@ function App() {
                 </div>
 
                 <h2 className="text-xl font-semibold text-[#fb5c14]">
-                  Submitting Your Assessment...
+                  Indsendelse af din vurdering...
+
                 </h2>
                 <p className="text-gray-600 mt-2 text-sm max-w-sm">
-                  Please wait a few seconds while we process your data and send confirmation.
-                </p>
+                  Vær venligst patient og vent i nogle sekunder, mens vi behandler dine data og sender bekræftelse.                </p>
               </div>
             )}
 

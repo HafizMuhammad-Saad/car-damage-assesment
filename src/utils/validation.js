@@ -12,8 +12,8 @@ export const userDetailsSchema = yup.object({
     .email('Please enter a valid email address'),
   mobile: yup
     .string()
-    .required('Mobile number is required')
-    .matches(/^\+45\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/, 'Please enter a valid mobile number'),
+    .required('Mobile number is required'),
+    // .matches(/^\+45\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/, 'Please enter a valid mobile number'),
   address: yup
     .string()
     .required('Address is required')
@@ -45,6 +45,6 @@ export const damageAssessmentSchema = yup.object({
   images: yup
     .array()
     .of(yup.mixed())
-    .min(1, 'Please upload at least one image')
+    .min(1, 'Vær venligst sød og upload mindst en billed.')
     .max(10, 'Maximum 10 images allowed')
 })

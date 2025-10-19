@@ -132,7 +132,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
       await new Promise(resolve => setTimeout(resolve, 1500))
 
       const assessmentData = {
-              vehicleType,  // 👈 added here
+        vehicleType,  // 👈 added here
         // userDetails,
         damages: data.damages,
         images: images.map(img => ({
@@ -151,7 +151,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
       console.error('Error submitting assessment:', error)
     }
 
-    
+
   }
 
   useEffect(() => {
@@ -181,8 +181,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
         <div
           onClick={() => setVehicleType("car")}
           className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${vehicleType === "car"
-              ? "border-[#fb5c14] bg-orange-50"
-              : "border-gray-300 hover:border-[#fb5c14]"
+            ? "border-[#fb5c14] bg-orange-50"
+            : "border-gray-300 hover:border-[#fb5c14]"
             }`}
         >
           <img src="/static/assets/img/car/frontRight/body.png" alt="" className='h-12 object-contain' />
@@ -192,8 +192,8 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
         <div
           onClick={() => setVehicleType("van")}
           className={`cursor-pointer p-4 border rounded-lg flex flex-col items-center w-32 transition ${vehicleType === "van"
-              ? "border-[#fb5c14] bg-orange-50"
-              : "border-gray-300 hover:border-[#fb5c14]"
+            ? "border-[#fb5c14] bg-orange-50"
+            : "border-gray-300 hover:border-[#fb5c14]"
             }`}
         >
           <img src="/static/assets/img/van/frontRight/body.png" alt="" className='h-12 object-contain' />
@@ -278,7 +278,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
         <CardHeader>
           <CardTitle className="text-lg">Upload billeder af skader</CardTitle>
           <CardDescription>
-Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbefales.
+            Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbefales.
 
           </CardDescription>
         </CardHeader>
@@ -293,26 +293,26 @@ Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbe
 
       {/* Navigation Buttons */}
       <CardFooter className="flex justify-between items-center gap-4">
-  <Button
-    type="button"
-    variant="secondary"
-    onClick={onBack}
-    disabled={loading}
-    className="w-full sm:w-auto text-sm"
-  >
-    Tilbage til detaljer
-  </Button>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onBack}
+          disabled={loading}
+          className="w-full sm:w-auto text-sm"
+        >
+          Tilbage til detaljer
+        </Button>
 
-  <Button
-    onClick={handleSubmit(handleFormSubmit)}
-    loading={loading}
-    size={'sm'}
-    disabled={!isValid || fields.length === 0 || images.length === 0}
-    className="w-full sm:w-auto text-sm text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white"
-  >
-    {loading ? "Sender..." : "Indsend vurdering"}
-  </Button>
-</CardFooter>
+        <Button
+          onClick={handleSubmit(handleFormSubmit)}
+          loading={loading}
+          size={'sm'}
+          disabled={!isValid || fields.length === 0 || images.length === 0}
+          className="w-full sm:w-auto text-sm text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white"
+        >
+          {loading ? "Sender..." : "Indsend vurdering"}
+        </Button>
+      </CardFooter>
 
 
       {/* Summary */}
@@ -333,46 +333,46 @@ Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbe
         </Card>
       )} */}
 
-        {loading && (
-  <div style={{
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100vw",
-    height: "100vh",
-    background: "rgba(255,255,255,0.7)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 9999,
-  }}>
-    <div style={{
-      background: "#fff",
-      padding: "30px 40px",
-      borderRadius: "8px",
-      boxShadow: "0 0 10px rgba(0,0,0,0.15)",
-      textAlign: "center",
-    }}>
-      <div className="spinner" style={{
-        border: "3px solid #eee",
-        borderTop: "3px solid #fb5c14",
-        borderRadius: "50%",
-        width: "30px",
-        height: "30px",
-        animation: "spin 1s linear infinite",
-        margin: "0 auto 10px",
-      }}></div>
-      <p style={{color: "#333"}}>Submitting your report...</p>
-    </div>
+      {loading && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          background: "rgba(255,255,255,0.7)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 9999,
+        }}>
+          <div style={{
+            background: "#fff",
+            padding: "30px 40px",
+            borderRadius: "8px",
+            boxShadow: "0 0 10px rgba(0,0,0,0.15)",
+            textAlign: "center",
+          }}>
+            <div className="spinner" style={{
+              border: "3px solid #eee",
+              borderTop: "3px solid #fb5c14",
+              borderRadius: "50%",
+              width: "30px",
+              height: "30px",
+              animation: "spin 1s linear infinite",
+              margin: "0 auto 10px",
+            }}></div>
+            <p style={{ color: "#333" }}>At submitte dit rapport...</p>
+          </div>
 
-    <style>{`
+          <style>{`
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
     `}</style>
-  </div>
-)}
+        </div>
+      )}
     </div>
 
 
