@@ -208,11 +208,12 @@ const CarViewer2D = ({
     }`}
   />
             </button>
-
-            <p className="mt-2 text-xs text-gray-600 bg-amber-100 rounded-lg px-2 py-1 z-10 text-center flex sm:hidden">
+           
+            {/* <p className="mt-2 text-xs text-gray-600 bg-amber-100 rounded-lg px-2 py-1 z-10 text-center flex sm:hidden">
    🔎 Zoom ind for at markere skader på alle dele
-</p>
+</p> */}
         </div>
+        
       </div>
 
       {/* <div className="relative bg-gray-100" style={{ height: `${height}px` }}>
@@ -281,12 +282,14 @@ const CarViewer2D = ({
       <div className="relative" style={{ height: `${height}px` }}>
   {/* Car Views Container */}
   <div className="relative w-full h-full">
+
     {VIEWS.map((view) =>
       currentView === view.id ? (
         <div
           key={view.id}
           className="absolute inset-0 flex items-center justify-center"
         >
+
           {/* <div className="relative w-full h-64"> */}
           <div className="relative w-full max-w-4xl mx-auto aspect-[4/2]">
              {/* Base Car Body */}
@@ -328,10 +331,16 @@ const CarViewer2D = ({
   </div>
 
   {/* Current View Indicator */}
+  <div className="absolute top-4 right-4 z-10 flex sm:hidden">
+
+    <img src="/Zoom In.gif" alt="" className='w-16'/>
+  </div>
   <div className="absolute top-4 left-4 bg-gray-200 z-10 bg-opacity-0 rounded-md px-3 py-2">
     <p className="text-sm font-medium text-gray-700">
       {VIEWS.find((v) => v.id === currentView)?.label}
     </p>
+
+
   </div>
 
   {/* View Navigation */}

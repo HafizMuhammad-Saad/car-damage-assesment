@@ -213,9 +213,7 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
       rotating ? 'animate-spin' : ''
     }`} />
           </button>
- <p className="mt-2 text-xs text-gray-600 bg-amber-100 rounded-lg px-2 py-1 z-10 text-center flex sm:hidden">
-   🔎 Zoom ind for at markere skader på alle dele
-</p>
+
           
         </div>
       </div>
@@ -279,6 +277,10 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
   </div>
 
   {/* Current View Indicator */}
+   <div className="absolute top-4 right-4 z-10 flex sm:hidden">
+
+    <img src="/Zoom In.gif" alt="" className='w-16'/>
+  </div>
   <div className="absolute top-4 left-4 bg-gray-200 z-10 bg-opacity-0 rounded-md px-3 py-2">
     
     <p className="text-sm font-medium text-gray-700">

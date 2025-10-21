@@ -118,7 +118,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('name')}
                     error={errors.name?.message}
-                    placeholder="Enter your full name"
+                    placeholder="Indtast dit fulde navn"
                   />
 
                   <Input
@@ -127,7 +127,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('email')}
                     error={errors.email?.message}
-                    placeholder="info@example.com"
+                    placeholder="username@example.com"
                   />
                 </div>
 
@@ -138,7 +138,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('mobile')}
                     error={errors.mobile?.message}
-                    placeholder="+45 12 34 56 78"
+                    placeholder="+4512345678"
                   />
 
                   <Input
@@ -146,7 +146,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('address')}
                     error={errors.address?.message}
-                    placeholder="Enter your complete address"
+                    placeholder="Indtast din fulde adresse"
                   />
                 </div>
               </div>
@@ -171,7 +171,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                   {fetchingCarInfo && (
                     <div className="absolute right-4 top-10 flex items-center space-x-2">
                       <Search className="w-4 h-4 text-orange-600 animate-pulse" />
-                      <span className="text-sm text-orange-600">Searching...</span>
+                      <span className="text-sm text-orange-600">Søger...</span>
                     </div>
                   )}
                 </div>
@@ -185,7 +185,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                       <div className="bg-white rounded-lg p-3">
-                        <p className="text-sm text-gray-600">Make</p>
+                        <p className="text-sm text-gray-600">Lave</p>
                         <p className="font-semibold text-gray-900">{carInfo.make}</p>
                       </div>
                       <div className="bg-white rounded-lg p-3">
@@ -242,7 +242,7 @@ Behandl din skadesanmeldelse gennem dit forsikringsselskab. Vi håndterer alt pa
             text-green-600
             group-hover:text-green-700
             peer-checked:text-white" />
-                            <span>Direct billing available</span>
+                            <span>Direkte fakturering tilgængelig</span>
                           </div>
                         </div>
                       </div>

@@ -8,7 +8,7 @@ const ImageUpload = ({
   maxImages = 10, 
   className,
   error,
-  label = 'Upload Images'
+  label = 'Upload billeder'
 }) => {
   const [images, setImages] = useState([])
   const [dragOver, setDragOver] = useState(false)
@@ -101,12 +101,12 @@ const ImageUpload = ({
         <div className="flex flex-col items-center">
           <Upload className="h-12 w-12 text-gray-400 mb-4" />
           <p className="text-sm text-gray-600 mb-2">
-            Drag and drop images here, or{' '}
+           Træk og slip billeder her, eller{' '}
             
-              browse files
+              gennemse filer
           </p>
           <p className="text-xs text-gray-500">
-            PNG, JPG, GIF up to 10MB each (max {maxImages} images)
+            PNG, JPG, GIF op til 10 MB hver  (max {maxImages} billeder)
           </p>
         </div>
       </div>
