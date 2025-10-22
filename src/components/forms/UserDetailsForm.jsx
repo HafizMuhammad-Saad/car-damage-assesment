@@ -97,7 +97,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div>
                 <CardTitle className="text-lg sm:text-xl text-orange-900 font-semibold">Personlige oplysninger og køretøjsoplysninger</CardTitle>
                 <CardDescription className="text-sm sm:text-base text-gray-600">
-                  Angiv venligst dine kontaktoplysninger og køretøjsoplysninger for at komme i gang med din bilskadevurdering.
+                  Angiv venligst dine kontaktoplysninger og køretøjsoplysninger for at komme i gang med din skadesanmeldelse.
                 </CardDescription>
               </div>
             </div>
@@ -127,7 +127,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     required
                     {...register('email')}
                     error={errors.email?.message}
-                    placeholder="username@example.com"
+                    placeholder="anders.andersen@mail.dk"
                   />
                 </div>
 

@@ -22,20 +22,20 @@ const STEPS = {
 const STEPS_CONFIG = [
   {
     key: STEPS.USER_DETAILS,
-    name: "Brugeroplysninger",
+    name: "Personlige oplysninger",
     Icon: (props) => <FileText {...props} />,
     isCompleted: (state) => !!state.userDetails,
   },
   {
     key: STEPS.DAMAGE_ASSESSMENT,
-    name: "Vurdering",
+    name: "Skades oplysninger",
     Icon: (props) => <Car {...props} />,
     // This step is only "complete" when the final result is in
     isCompleted: (state) => !!state.assessmentResult,
   },
   {
     key: STEPS.SUCCESS,
-    name: "Komplet",
+    name: "Indsend",
     Icon: (props) => <CheckCircle2 {...props} />,
     isCompleted: (state) => state.currentStep === STEPS.SUCCESS,
   },

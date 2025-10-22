@@ -27,7 +27,7 @@ function Hero() {
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
-              <span className="block text-orange-500">
+              <span className="block text-white-500">
                 Skadesanmeldelse
               </span>
             </h1>
