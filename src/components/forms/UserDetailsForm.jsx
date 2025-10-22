@@ -236,7 +236,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                             <h4 className="text-lg font-semibold ">Forsikringsbetaling</h4>
                           </div>
                           <p className=" leading-relaxed ">
-Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes                         </p>
+Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700 ">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
             text-green-600
