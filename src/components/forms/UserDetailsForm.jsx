@@ -233,16 +233,16 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
             group-hover:text-orange-700
             text-orange-600 
             peer-checked:text-white" />
-                            <h4 className="text-lg font-semibold ">Forsikringskrav</h4>
+                            <h4 className="text-lg font-semibold ">Forsikringsbetaling</h4>
                           </div>
                           <p className=" leading-relaxed ">
-Behandl din skadesanmeldelse gennem dit forsikringsselskab. Vi håndterer alt papirarbejdet og koordineringen.                          </p>
+Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes                         </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700 ">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
             text-green-600
             group-hover:text-green-700
             peer-checked:text-white" />
-                            <span>Direkte fakturering tilgængelig</span>
+                            <span>Skaden betales af forsikringen</span>
                           </div>
                         </div>
                       </div>
@@ -276,16 +276,16 @@ Behandl din skadesanmeldelse gennem dit forsikringsselskab. Vi håndterer alt pa
             text-orange-600 
             group-hover:text-orange-700 
             peer-checked:text-white" />
-                            <h4 className="text-lg font-semibold ">Selvbetalt service</h4>
+                            <h4 className="text-lg font-semibold ">Selvbetaling</h4>
                           </div>
                           <p className="leading-relaxed ">
-Betal for reparationer direkte og få hurtigere service med fleksible betalingsmuligheder.                          </p>
+Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
             text-green-600
             group-hover:text-green-700
             peer-checked:text-white" />
-                            <span>Prioriteret planlægning</span>
+                            <span>Fuldt overblik over samlet omkostninger</span>
                           </div>
                         </div>
                       </div>
