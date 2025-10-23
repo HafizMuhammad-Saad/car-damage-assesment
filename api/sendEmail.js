@@ -154,7 +154,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
         // 2. Send thank-you email to user
         await transporter.sendMail({
-  from: `Køretøjsvurdering <${process.TO_EMAIL}>`,
+  from: `Køretøjsvurdering <${process.env.TO_EMAIL}>`,
   to: fields.email,
   subject: "✅ Tak for din indsendelse af skadevurdering",
   html: `
