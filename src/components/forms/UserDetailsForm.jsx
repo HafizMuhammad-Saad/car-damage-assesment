@@ -310,7 +310,7 @@ Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, ell
                   loading={loading}
                   disabled={!isValid}
                   size="lg"
-                  className="w-full sm:w-auto min-w-[160px] text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white transition"
+                  className="w-full sm:w-auto min-w-[160px] text-[#FB5C14] border border-[#FB5C14] hover:bg-[#FB5C14] hover:text-white transition"
                 >
                   Fortsæt til næste trin
                 </Button>

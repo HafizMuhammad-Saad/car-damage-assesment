@@ -235,3 +235,13 @@ radio:checked {
 
 
 .object-cover { object-fit: cover; }
+
+/* hide scrollbar but still scrollable */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

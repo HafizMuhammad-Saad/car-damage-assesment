@@ -313,7 +313,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
           loading={loading}
           size={'sm'}
           disabled={!isValid || fields.length === 0 || images.length === 0}
-          className="w-full sm:w-auto text-sm text-orange-400 border border-orange-400 hover:bg-orange-400 hover:text-white"
+          className="w-full sm:w-auto text-sm text-[#FB5C14] border border-[#FB5C14] hover:bg-[#FB5C14] hover:text-white"
         >
           {loading ? "Sender..." : "Indsend vurdering"}
         </Button>
